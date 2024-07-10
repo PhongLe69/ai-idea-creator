@@ -347,7 +347,42 @@ export default  [
            
         ]
     },
-
+    {
+        name: 'Facebook Post Generator',
+        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        icon: 'https://cdn-icons-png.flaticon.com/128/747/747543.png',
+        category: 'blog',
+       
+        slug: 'facebook-post-generator',
+        aiPrompt: 'Generate 3 Facebook post depends on a given keywords and give output in  in rich text editor format',
+        form: [
+            {
+                label: 'Enter Keywords for your post',
+                field: 'input',
+                name: 'keywords',
+                required:true
+            },
+           
+        ]
+    },
+    {
+        name: 'TikTok Post Generator',
+        desc: 'An AI tool that serves as your personal blog post title writer, generating catchy and viral-worthy titles in your chosen language.',
+        icon: 'https://cdn-icons-png.flaticon.com/128/3046/3046121.png',
+        category: 'blog',
+       
+        slug: 'tiktok-post-generator',
+        aiPrompt: 'Generate 2 TikTok post depends on a given keywords and give output in  in rich text editor format',
+        form: [
+            {
+                label: 'Enter Keywords for your post',
+                field: 'input',
+                name: 'keywords',
+                required:true
+            },
+           
+        ]
+    },
 
 
 ]

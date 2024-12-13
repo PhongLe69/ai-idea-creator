@@ -1,10 +1,22 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    
-    images:{
-        domains:['cdn-icons-png.flaticon.com'],
-        unoptimized:true
-    }
+import withPWA from 'next-pwa';
+
+const pwaConfig = {
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
 };
 
-export default nextConfig;
+const withPWAConfig = withPWA(pwaConfig);
+
+export default withPWAConfig({
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*',
+      }
+    ]
+  },
+  reactStrictMode: true,
+});

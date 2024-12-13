@@ -1,13 +1,14 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./landing-components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -19,13 +20,33 @@ const config = {
     },
     extend: {
       colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        white: "#ffffff",
+        black: "#000000",
+        lightblue: "#DAEBFF",
+        lightgrey: "#AEC7E4",
+        navyblue: "#002834",
+        beach: "#8EA9C1",
+        circlebg: "rgba(77, 213, 143, 0.25)",
+        darkblue: " #000321",
+        offwhite: "rgba(255, 255, 255, 0.75);",
+        bordertop: "rgba(196, 196, 196, 0.5);",
+        darkgray: "#90A3B4",
+        babyblue: "#E2F3F9",
+        grey500: "#ECECEC",
+        bluegray: "#7D82A1",
+        bluegrey: "#7C8F9E",
+        midnightblue: "#183B56",
+        midblue: "#00276F",
+        bluebg: "rgba(47, 184, 227, 0.2)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#704ef8",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -74,7 +95,43 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  daisyui: {
+    themes: [
+      "light",
+      "dark",
+      "cupcake",
+      "bumblebee",
+      "emerald",
+      "corporate",
+      "synthwave",
+      "retro",
+      "cyberpunk",
+      "valentine",
+      "halloween",
+      "garden",
+      "forest",
+      "aqua",
+      "lofi",
+      "pastel",
+      "fantasy",
+      "wireframe",
+      "black",
+      "luxury",
+      "dracula",
+      "cmyk",
+      "autumn",
+      "business",
+      "acid",
+      "lemonade",
+      "night",
+      "coffee",
+      "winter",
+      "dim",
+      "nord",
+      "sunset",
+    ],
+  },
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
+} satisfies Config;
 
-export default config
+export default config;

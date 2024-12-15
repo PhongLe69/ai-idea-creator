@@ -1,18 +1,18 @@
 export const headlines = [
-  {
-    source: { id: "bbc-news", name: "BBC News" },
-    author: "https://www.facebook.com/bbcnews",
-    title:
-      "Starmer vows green energy push, but SNP says plans will destroy jobs",
-    description:
-      "The Labour leader is in Scotland to launch his energy plans, including a pledge to start work on green projects within months.",
-    url: "https://www.bbc.co.uk/news/live/uk-politics-69078711",
-    urlToImage:
-      "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/5.3.0/bbc_news_logo.png",
-    publishedAt: "2024-05-31T03:47:39Z",
-    content:
-      "The policy announcement from the Conservatives today is a crackdown on fly-tippers and disruptive social housing tenants. They want to dock points from fly-tippers' driving licenses and evict tenants… [+601 chars]",
-  },
+  // {
+  //   source: { id: "bbc-news", name: "BBC News" },
+  //   author: "https://www.facebook.com/bbcnews",
+  //   title:
+  //     "Starmer vows green energy push, but SNP says plans will destroy jobs",
+  //   description:
+  //     "The Labour leader is in Scotland to launch his energy plans, including a pledge to start work on green projects within months.",
+  //   url: "https://www.bbc.co.uk/news/live/uk-politics-69078711",
+  //   urlToImage:
+  //     "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/5.3.0/bbc_news_logo.png",
+  //   publishedAt: "2024-05-31T03:47:39Z",
+  //   content:
+  //     "The policy announcement from the Conservatives today is a crackdown on fly-tippers and disruptive social housing tenants. They want to dock points from fly-tippers' driving licenses and evict tenants… [+601 chars]",
+  // },
   {
     source: { id: null, name: "NPR" },
     author: "Darian Woods",

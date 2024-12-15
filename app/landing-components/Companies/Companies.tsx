@@ -9,30 +9,30 @@ interface Data {
 }
 
 const data: Data[] = [
-  {
-    imgSrc: "/assets/carousel/google.svg",
-  },
-  {
-    imgSrc: "/assets/carousel/garnier.png",
-  },
-  {
-    imgSrc: "/assets/carousel/slack.png",
-  },
-  {
-    imgSrc: "/assets/carousel/udemy.png",
-  },
-  {
-    imgSrc: "/assets/carousel/google.svg",
-  },
-  {
-    imgSrc: "/assets/carousel/garnier.png",
-  },
-  {
-    imgSrc: "/assets/carousel/slack.png",
-  },
-  {
-    imgSrc: "/assets/carousel/udemy.png",
-  },
+  // {
+  //   imgSrc: "/assets/carousel/google.svg",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/garnier.png",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/slack.png",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/udemy.png",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/google.svg",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/garnier.png",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/slack.png",
+  // },
+  // {
+  //   imgSrc: "/assets/carousel/udemy.png",
+  // },
 ];
 
 // CAROUSEL SETTINGS
@@ -97,7 +97,7 @@ export default class MultipleItems extends Component {
               ))}
             </Slider>
           </div>
-          <hr />
+          {/* <hr /> */}
         </div>
       </div>
     );

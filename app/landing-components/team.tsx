@@ -20,16 +20,16 @@ export function Team() {
     >
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 md:gap-8 lg:gap-12">
-          <div className="text-center space-y-2">
+          {/* <div className="text-center space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter bg-gradient-to-br bg-clip-text text-transparent from-black to-muted-foreground/50 sm:text-4xl md:text-5xl">
               Meet Our Team
             </h2>
             <p className="text-muted-foreground md:text-lg">
               The talented individuals behind our product.
             </p>
-          </div>
+          </div> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-            <div className="bg-card hover:-translate-y-1 p-6 rounded-xl shadow-sm transition-all duration-300 hover:border-cyan-200 border hover:shadow-md">
+            {/* <div className="bg-card hover:-translate-y-1 p-6 rounded-xl shadow-sm transition-all duration-300 hover:border-cyan-200 border hover:shadow-md">
               <div className="flex flex-col items-center gap-4">
                 <Image
                   alt="Anish"
@@ -127,7 +127,7 @@ export function Team() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

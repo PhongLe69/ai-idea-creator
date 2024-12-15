@@ -421,4 +421,62 @@ export default [
       },
     ],
   },
+  {
+    name: "Mathematic",
+    desc: "An AI tool that generate questions for quiz, test of Maths.",
+    category: "maths",
+    icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
+    slug: "maths",
+    aiPrompt:
+      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test as per user requirement, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order), else just anwer normal. Please provide the exact LaTeX code relevant to the question [question name or question description]. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
+    form: [
+      {
+        label: "Enter your required",
+        field: "input",
+        name: "topic",
+        required: true,
+      },
+      {
+        label: "Enter the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        field: "input",
+        name: "topic",
+        required: true,
+      },
+      {
+        label: "Enter total number of question you want to create",
+        // aiPrompt: 
+        // "If the user selects more than 2 question types and the number of questions is large, divide the number of questions equally for each question type." ,
+        field: "input",
+        name: "outline",
+        required: true,
+      },
+    ],
+  },
+  // {
+  //   "name": "Custom Prompt Generator",
+  //   "desc": "Create your own AI prompt for quizzes, tests, and more.",
+  //   "category": "custom",
+  //   "icon": "https://cdn-icons-png.flaticon.com/256/889/889135.png",
+  //   "slug": "custom-prompt",
+  //   "aiPrompt": "Please enter your custom AI prompt here. The prompt will be used to generate questions or content based on your requirements.",
+  //   "form": [
+  //     {
+  //       "label": "Enter a custom prompt for your AI tool",
+  //       "field": "textarea",
+  //       "name": "customPrompt",
+  //       "required": true
+  //     },
+  //     {
+  //       "label": "Enter the category or type of questions you want to generate (e.g., Maths, Science, etc.)",
+  //       "field": "input",
+  //       "name": "category",
+  //       "required": true
+  //     },
+  //     {
+  //       "label": "Enter any additional instructions or settings for the prompt",
+  //       "field": "textarea",
+  //       "name": "instructions"
+  //     }
+  //   ]
+  // },
 ];

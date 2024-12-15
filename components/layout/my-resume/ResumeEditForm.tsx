@@ -111,7 +111,8 @@ const ResumeEditForm = ({
                   educationResult.success &&
                   skillsResult.success
                 ) {
-                  router.push("/resume/" + params.id);
+                  // router.push("/resume/" + params.id);
+                  (window as any).open("/resume/" + params.id, "_blank")
                 } else {
                   toast({
                     title: "Uh Oh! Something went wrong.",

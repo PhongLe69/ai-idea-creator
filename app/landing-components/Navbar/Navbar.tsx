@@ -26,10 +26,10 @@ const Navbar = () => {
       title: "About",
       path: "#about",
     },
-    {
-      title: "Reviews",
-      path: "#reviews",
-    },
+    // {
+    //   title: "Reviews",
+    //   path: "#reviews",
+    // },
     {
       title: "Contact",
       path: "#contact",
@@ -74,11 +74,11 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <SignedIn>
+              {/* <SignedIn>
                 <Button size="lg" asChild>
                   <Link href="/dashboard">Dashboard</Link>
                 </Button>
-              </SignedIn>
+              </SignedIn> */}
               <SignedOut>
                 <div className="flex gap-4">
                   <Button size="lg" asChild>

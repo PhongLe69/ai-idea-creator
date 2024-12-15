@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import SparklesText from "@/components/ui/sparklestxt";
+import { Button } from "@/components/ui/button";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const Banner = () => {
   return (
@@ -43,18 +45,25 @@ const Banner = () => {
           </div>
 
           <div className="text-center mt-5">
-            <ShimmerButton>
-              <Link href="/sign-in">Get Started</Link>
+          <SignedIn>
+            <ShimmerButton size="lg" asChild>
+              <Link href="/dashboard/content">Get Started</Link>
             </ShimmerButton>
-          </div>
+          </SignedIn>
+          <SignedOut>
+            <ShimmerButton size="lg" asChild>
+              <Link href="/sign-in">Login to access</Link>
+            </ShimmerButton>
+          </SignedOut>
+        </div>
 
-          <Image
+          {/* <Image
             src={"/assets/banner/dashboard.png"}
             alt="banner-image"
             className="mt-10 rounded-2xl z-10 border border-cyan-800/20 shadow-xl md:shadow-2xl"
             width={1200}
             height={598}
-          />
+          /> */}
         </div>
       </div>
     </main>

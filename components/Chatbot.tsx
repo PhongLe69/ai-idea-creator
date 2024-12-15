@@ -130,7 +130,7 @@ const Chatbox = () => {
           <Textarea
             id="chat-input"
             className={inter.className}
-            placeholder="enter your prompt"
+            placeholder="Enter your prompt"
             rows={1}
             value={input}
             required

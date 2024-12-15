@@ -42,53 +42,53 @@ export default function DashLayout({
   const pathname = usePathname();
   const paths = pathname.split("/").reverse();
   const pathArray = [
-    {
-      name: "dashboard",
-      icon: <Home size={16} />,
-      link: "/dashboard",
-    },
-    {
-      name: "interview",
-      icon: <Speech size={16} />,
-      link: "/dashboard/interview",
-    },
-    {
-      name: "forms",
-      icon: <TableProperties size={16} />,
-      link: "/dashboard/forms",
-    },
     // {
-    //   name: "resume",
-    //   icon: <File size={16} />,
-    //   link: "/dashboard/resume",
+    //   name: "dashboard",
+    //   icon: <Home size={16} />,
+    //   link: "/dashboard",
+    // },
+    // {
+    //   name: "interview",
+    //   icon: <Speech size={16} />,
+    //   link: "/dashboard/interview",
+    // },
+    // {
+    //   name: "forms",
+    //   icon: <TableProperties size={16} />,
+    //   link: "/dashboard/forms",
     // },
     {
-      name: "content",
+      name: "Content",
       icon: <BarChart size={16} />,
       link: "/dashboard/content",
+    },
+    {
+      name: "Resume",
+      icon: <File size={16} />,
+      link: "/dashboard/resume",
     },
     // {
     //   name: "emailer",
     //   icon: <Mail size={16} />,
     //   link: "/dashboard/emailer",
     // },
+    // {
+    //   name: "toplinkedin",
+    //   icon: <LinkedinIcon size={16} />,
+    //   link: "/dashboard/toplinkedin",
+    // },
     {
-      name: "toplinkedin",
-      icon: <LinkedinIcon size={16} />,
-      link: "/dashboard/toplinkedin",
-    },
-    {
-      name: "headlines",
+      name: "Headlines",
       icon: <Newspaper size={16} />,
       link: "/dashboard/headlines",
     },
     {
-      name: "chatbot",
+      name: "Chatbot",
       icon: <Bot size={16} />,
       link: "/dashboard/chatbot",
     },
     {
-      name: "history",
+      name: "History",
       icon: <Timer size={16} />,
       link: "/dashboard/history",
     },

@@ -124,7 +124,7 @@ const Chatbox = () => {
 
       <form className="mt-2" onSubmit={handleSubmit}>
         <label htmlFor="chat-input" className="sr-only">
-          enter your prompt
+          Enter your prompt
         </label>
         <div className="relative">
           <Textarea

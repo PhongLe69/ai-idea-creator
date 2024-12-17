@@ -112,7 +112,7 @@ export default function DashLayout({
                 alt="Logo"
               />
               <span className="text-lg font-semibold tracking-tight ">
-                EasyContent AI
+                EasyContent
               </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
@@ -165,7 +165,7 @@ export default function DashLayout({
                   href="/dashboard"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <span className="sr-only">PhongLe</span>
+                  <span className="sr-only">EasyContent</span>
                 </Link>
                 {pathArray.map((path, index) => (
                   <a

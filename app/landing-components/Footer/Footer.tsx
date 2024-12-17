@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="col-span-4 md:col-span-12 lg:col-span-4">
             <div className="flex items-center justify-start px-4 mb-6 gap-2 text-white">
               <img src={"/logo-white-1200x1200.png"} alt="logo" width={60} />
-              <p className="text-3xl font-semibold">PhongLe</p>
+              <p className="text-3xl font-semibold">EasyContent</p>
             </div>
             <div className="flex gap-4">
               <Link href="https://facebook.com" className="footer-fb-icons">
@@ -129,7 +129,7 @@ const Footer = () => {
             @2024 PhongLe. All Rights Reserved by{" "}
             <Link href="https://google.com" target="_blank">
               {" "}
-              PhongLe
+              EasyContent
             </Link>
           </h4>
           <div className="flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start">

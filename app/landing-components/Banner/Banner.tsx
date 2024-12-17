@@ -23,13 +23,32 @@ const Banner = () => {
               animate={{ opacity: 1, y: -4 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
-                Power your interviews with{" "}
-                <span>
-                  <SparklesText text="PhongLe" />{" "}
+              {/* <h1 className="text-4xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
+              <span>
+                  <SparklesText text="EasyContent" />{" "}
+                  AI
                 </span>
-                AI
+                <br />
+                Where Creativity Meets Efficiency.{" "}
+              </h1> */}
+
+              <h1 className="text-7xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
+                <span>
+                  <SparklesText text="EasyContent" />{" "}
+                  AI
+                </span>
+                <br />
+                Where{" "}
+                <span className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 animate-pulse">
+                  Creativity
+                </span>{" "}
+                <br />
+                Meet{" "}
+                <span className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 animate-pulse">
+                  Efficiency
+                </span>
               </h1>
+
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -37,17 +56,25 @@ const Banner = () => {
               transition={{ duration: 1.6, delay: 0.5 }}
             >
               <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
-                Don&apos;t be afraid! You can ace that interview! You can crack
-                the job! we got you covered. Use{" "}
-                <span className="text-primary font-bold">PhongLe</span>!
+                Let EasyContent handle the hard part, while you take your content to the top chart!
               </p>
+
             </motion.div>
           </div>
 
           <div className="text-center mt-5">
           <SignedIn>
             <ShimmerButton size="lg" asChild>
-              <Link href="/dashboard/content">Get Started</Link>
+            <Link href="/dashboard/content">
+              <span className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-black to-red-900 animate-pulse">
+                Started
+              </span>
+            </Link>
+
+
+
+
+
             </ShimmerButton>
           </SignedIn>
           <SignedOut>

@@ -4,15 +4,15 @@
 
 - **AI-Driven Efficiency**
 
-  - Simplifies and enhances every interview step.
+  <!-- - Simplifies and enhances every interview step. -->
 
 - **Customizable and Shareable**
 
-  - Access tips, mock interviews, and expert insights to prepare thoroughly.
+  <!-- - Access tips, mock interviews, and expert insights to prepare thoroughly. -->
 
 - **Collaborative Community**
 
-  - Share resources and feedback with fellow interviewers.
+  <!-- - Share resources and feedback with fellow interviewers. -->
 
 - **Professional Chatbot**
 

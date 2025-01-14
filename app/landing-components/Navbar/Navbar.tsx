@@ -51,7 +51,7 @@ const Navbar = () => {
                   width={40}
                   height={50}
                 />
-                <span className="text-xl">EasyContent</span>
+                <span className="text-xl">EduQuiz</span>
               </Link>
             </div>
 

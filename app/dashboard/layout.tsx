@@ -42,11 +42,11 @@ export default function DashLayout({
   const pathname = usePathname();
   const paths = pathname.split("/").reverse();
   const pathArray = [
-    // {
-    //   name: "dashboard",
-    //   icon: <Home size={16} />,
-    //   link: "/dashboard",
-    // },
+    {
+      name: "Dashboard",
+      icon: <Home size={16} />,
+      link: "/dashboard",
+    },
     // {
     //   name: "interview",
     //   icon: <Speech size={16} />,
@@ -77,11 +77,11 @@ export default function DashLayout({
     //   icon: <LinkedinIcon size={16} />,
     //   link: "/dashboard/toplinkedin",
     // },
-    {
-      name: "Headlines",
-      icon: <Newspaper size={16} />,
-      link: "/dashboard/headlines",
-    },
+    // {
+    //   name: "Headlines",
+    //   icon: <Newspaper size={16} />,
+    //   link: "/dashboard/headlines",
+    // },
     {
       name: "Chatbot",
       icon: <Bot size={16} />,
@@ -112,7 +112,7 @@ export default function DashLayout({
                 alt="Logo"
               />
               <span className="text-lg font-semibold tracking-tight ">
-                EasyContent
+                EduQuiz
               </span>
             </Link>
             <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
@@ -165,7 +165,7 @@ export default function DashLayout({
                   href="/dashboard"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <span className="sr-only">EasyContent</span>
+                  <span className="sr-only">EduQuiz</span>
                 </Link>
                 {pathArray.map((path, index) => (
                   <a

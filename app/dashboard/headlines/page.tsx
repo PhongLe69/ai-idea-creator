@@ -12,7 +12,7 @@ const page = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-x-10 gap-y-4">
           <div>
             <h2 className="font-bold text-3xl text-white mb-2">
-              all the latest news about jobs.
+              All the latest news about jobs.
             </h2>
             <h2 className="text-gray-200">
               Stay informed with the latest news about jobs and employment.

@@ -4,7 +4,7 @@ import { Viewport } from "next";
 import { Toaster } from "sonner";
 
 export const metadata = {
-  title: "EasyContent AI",
+  title: "EduQuiz Generator",
   description: "Next gen AI platform",
   metadataBase: new URL("http://localhost:3000"),
   manifest: "/manifest.json",

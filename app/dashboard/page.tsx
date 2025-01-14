@@ -37,7 +37,7 @@ export default function Dashboard({}: Props) {
           <Welcome />
         </Suspense>
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-purple-500">
+          {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-purple-500">
             <CardHeader className="flex gap-4">
               <Speech size={50} />
               <div>
@@ -54,8 +54,8 @@ export default function Dashboard({}: Props) {
                 </Link>
               </Button>
             </CardContent>
-          </Card>
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
+          </Card> */}
+          {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
             <CardHeader className="flex gap-4">
               <TableProperties size={50} />
               <div>
@@ -73,7 +73,28 @@ export default function Dashboard({}: Props) {
                 </Link>
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
+
+           <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
+            <CardHeader className="flex gap-4">
+              <TableProperties size={50} />
+              <div>
+                <CardTitle>AI Generate Content ✨</CardTitle>
+                <CardDescription>
+                Easily create content with AI
+                </CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Button asChild size={"sm"}>
+                <Link href="/dashboard/content">
+                  Create
+                  <ArrowRight size={18} />
+                </Link>
+              </Button>
+            </CardContent>
+          </Card> 
+
           <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
             <CardHeader className="flex gap-4">
               <FileHeart size={50} />
@@ -111,7 +132,7 @@ export default function Dashboard({}: Props) {
               </Button>
             </CardContent>
           </Card>
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
+          {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
             <CardHeader className="flex gap-4">
               <MailPlus size={50} />
               <div>
@@ -129,7 +150,7 @@ export default function Dashboard({}: Props) {
                 </Link>
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
         <div className="flex flex-col">
           <h2 className="text-2xl md:text-3xl font-semibold py-2 text-zinc-700">

@@ -16,10 +16,10 @@ const Welcome = async () => {
             }
           />
         </span>{" "}
-        !👋
+        !👋👋
       </h1>
       <p className="text-muted text-lg">
-        hi there! welcome to your dashboard. You can do:
+        Hi there! Welcome to your dashboard. Here you can do:
       </p>
     </div>
   );

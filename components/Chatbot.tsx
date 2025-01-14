@@ -99,7 +99,7 @@ const Chatbox = () => {
                   inter.className
                 )}
               >
-                EasyContent
+                EduQuiz
               </span>
               .AI Now!
             </p>

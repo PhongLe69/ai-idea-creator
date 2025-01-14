@@ -428,16 +428,10 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
     slug: "maths",
     aiPrompt:
-      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test as per user requirement, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order), else just anwer normal. Please provide the exact LaTeX code relevant to the question [question name or question description]. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
+      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answer at last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
     form: [
       {
-        label: "Enter your required",
-        field: "input",
-        name: "topic",
-        required: true,
-      },
-      {
-        label: "Enter the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
         field: "input",
         name: "topic",
         required: true,
@@ -452,6 +446,8 @@ export default [
       },
     ],
   },
+  
+
   // {
   //   "name": "Custom Prompt Generator",
   //   "desc": "Create your own AI prompt for quizzes, tests, and more.",

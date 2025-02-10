@@ -447,6 +447,74 @@ export default [
     ],
   },
   
+  {
+    name: "Math",
+    desc: "An AI tool that generate questions for quiz, test of Maths.",
+    category: "math",
+    icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
+    slug: "math",
+    aiPrompt:
+      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answer at last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
+    form: [
+      {
+        label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        field: "input",
+        name: "topic",
+        required: true,
+      },
+      {
+        label: "Enter total number of question you want to create",
+        // aiPrompt: 
+        // "If the user selects more than 2 question types and the number of questions is large, divide the number of questions equally for each question type." ,
+        field: "input",
+        name: "outline",
+        required: true,
+      },
+    ],
+  },
+
+  {
+    name: "Rewrite Article (Plagiarism Free)",
+    desc: "Use this tool to rewrite existing Article or Blog Post which can bypass AI detectors and also make it plagiarism free.",
+    icon: "https://cdn-icons-png.flaticon.com/128/3131/3131607.png",
+    category: "Rewriting Tool",
+    slug: "rewrite-articles",
+    aiPrompt:
+      "Rewrite give article without any Plagiarism, Engagement is the highest priority. Be conversational & empathetic. Ensure heterogeneous paragraphs. Ensure heterogeneous sentence lengths. And stick to primarily short, straightforward sentences. Perplexity measures how predictable the content is, with higher levels indicating that it was written by a human author. Burstiness checks how different sentences are, with human writing showing greater diversity. AI detectors are useful, but they are not perfect. That said, Use natural dialogue and write with a high level of perplexity and burstiness. Strictly follow this requirement: your response should not include any of the following words and phrases: meticulous, meticulously, navigating, complexities, realm, understanding, dive, shall, tailored, towards, underpins, everchanging, ever-evolving, the world of, not only, alright, embark, Journey, In today's digital age, hey, game changer, designed to enhance, it is advisable, daunting, when it comes to, in the realm of, amongst, unlock the secrets, unveil the secrets, and robust, diving, elevate, unleash, power, cutting-edge, rapidly, expanding, mastering, excels, harness.",
+    form: [
+      {
+        label:
+          "🤖 Provide your Article/Blogpost or any other content to rewrite.",
+        field: "textarea",
+        name: "article",
+        required: true,
+      },
+    ],
+  },
+
+  {
+    name: "History",
+    desc: "An AI tool that generates questions for History quizzes and tests.",
+    category: "history",
+    icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
+    slug: "history",
+    aiPrompt:
+      "Create multiple choice or essay or true or false questions for World History test, and output the result in LaTeX format for translation to a complete PDF file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answers at the last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, and follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
+    form: [
+      {
+        label: "Enter the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        field: "input",
+        name: "topic",
+        required: true,
+      },
+      {
+        label: "Enter the total number of questions you want to create",
+        field: "input",
+        name: "outline",
+        required: true,
+      },
+    ],
+  },
 
   // {
   //   "name": "Custom Prompt Generator",

@@ -428,8 +428,7 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
     slug: "maths",
     aiPrompt:
-      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answer at last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
-    form: [
+"Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",    form: [
       {
         label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
         field: "input",
@@ -454,7 +453,7 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
     slug: "math",
     aiPrompt:
-      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 test, and output the result in LaTeX format for translation to complete pdf file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answer at last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
+      "",
     form: [
       {
         label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
@@ -480,7 +479,7 @@ export default [
     category: "Rewriting Tool",
     slug: "rewrite-articles",
     aiPrompt:
-      "Rewrite give article without any Plagiarism, Engagement is the highest priority. Be conversational & empathetic. Ensure heterogeneous paragraphs. Ensure heterogeneous sentence lengths. And stick to primarily short, straightforward sentences. Perplexity measures how predictable the content is, with higher levels indicating that it was written by a human author. Burstiness checks how different sentences are, with human writing showing greater diversity. AI detectors are useful, but they are not perfect. That said, Use natural dialogue and write with a high level of perplexity and burstiness. Strictly follow this requirement: your response should not include any of the following words and phrases: meticulous, meticulously, navigating, complexities, realm, understanding, dive, shall, tailored, towards, underpins, everchanging, ever-evolving, the world of, not only, alright, embark, Journey, In today's digital age, hey, game changer, designed to enhance, it is advisable, daunting, when it comes to, in the realm of, amongst, unlock the secrets, unveil the secrets, and robust, diving, elevate, unleash, power, cutting-edge, rapidly, expanding, mastering, excels, harness.",
+      "Create multiple choice or essay or true or false questions for Calculus 1 or 2 or 3 exam and export the results in LaTeX format for translation into a complete pdf file. Please provide accurate LaTeX results relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, easy to read font, following academic standards for the exam. Include only necessary content in LaTeX, no additional instructions or descriptions. Returns only plain text excluding Markdown syntax",
     form: [
       {
         label:

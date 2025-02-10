@@ -15,6 +15,11 @@ function OutputSection({ aiOutput }: Props) {
   const editorRef = useRef<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Function remove syntax ```latex and ```
+  const removeMarkdownSyntax = (text: string): string => {
+    return text.replace(/^```latex\s*/, '').replace(/\s*```$/, '');
+  };
+
   // PDF Download Function
   const handleDownloadPDF = () => {
     if (!aiOutput.trim()) {
@@ -40,7 +45,7 @@ function OutputSection({ aiOutput }: Props) {
     }
   };
 
-// Function to open LaTeX code in Overleaf using Base64 Data URL
+  // Function to open LaTeX code in Overleaf using Base64 Data URL
   const handleOpenInOverleaf = () => {
     if (!aiOutput.trim()) {
       alert('No content to open in Overleaf!');
@@ -50,11 +55,14 @@ function OutputSection({ aiOutput }: Props) {
     setIsLoading(true);
 
     try {
-// Convert LaTeX code to Base64      
-      const base64Content = btoa(unescape(encodeURIComponent(aiOutput)));
+      // Remove syntax ```latex and ```
+      const cleanedOutput = removeMarkdownSyntax(aiOutput);
+
+      // Convert LaTeX code to Base64      
+      const base64Content = btoa(unescape(encodeURIComponent(cleanedOutput)));
       const dataUrl = `data:application/x-tex;base64,${base64Content}`;
 
-// Open Overleaf with Base64 Data URL      
+      // Open Overleaf with Base64 Data URL      
       const overleafUrl = `https://www.overleaf.com/docs?snip_uri=${encodeURIComponent(dataUrl)}`;
       window.open(overleafUrl, '_blank');
     } catch (error) {
@@ -70,14 +78,14 @@ function OutputSection({ aiOutput }: Props) {
     editorInstance.setMarkdown(aiOutput);
   }, [aiOutput]);
 
-const [viewText, setViewText] = useState('PDF');
-const convertTo = () => {
-  if (viewText === 'PDF') {
-    setViewText('Latex');
-  } else {
-    setViewText('PDF');
+  const [viewText, setViewText] = useState('PDF');
+  const convertTo = () => {
+    if (viewText === 'PDF') {
+      setViewText('Latex');
+    } else {
+      setViewText('PDF');
+    }
   }
-}
 
   return (
     <div className='bg-white shadow-lg border rounded-lg'>
@@ -85,7 +93,7 @@ const convertTo = () => {
         <h2 className='font-medium text-lg'>Your Result</h2>
         <div className="flex gap-2">
 
-        <Button
+          <Button
             variant="outline"
             className='flex gap-2'
             onClick={convertTo}

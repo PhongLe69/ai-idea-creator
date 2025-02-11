@@ -428,7 +428,8 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
     slug: "maths",
     aiPrompt:
-"Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",    form: [
+"Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",    
+    form: [
       {
         label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
         field: "input",
@@ -447,29 +448,87 @@ export default [
   },
   
   {
-    name: "Math",
-    desc: "An AI tool that generate questions for quiz, test of Maths.",
-    category: "math",
-    icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
-    slug: "math",
-    aiPrompt:
-      "",
-    form: [
+    "name": "Math",
+    "desc": "An AI tool that generates questions for quizzes and tests in Maths.",
+    "category": "math",
+    "icon": "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
+    "slug": "math",
+    "aiPrompt": "Create test questions, export in user-requested format for translation and convert to academic-standard PDF. For multiple-choice questions, present questions as numbers and letter choices without answers. Focus on answering the user's request, no explanation, remove all unnecessary details, just focus on the standard format of a test. Present beautifully in the standard format of an exam.",
+    "form": [
+      // {
+      //   "label": "Choose the type of test you want to create",
+      //   "field": "select",
+      //   "name": "testType",
+      //   "options": [
+      //     { "label": "Quiz", "value": "quiz" },
+      //     { "label": "Midterm", "value": "midterm" },
+      //     { "label": "Final Exam", "value": "finalExam" }
+      //   ],
+      //   "required": true
+      // },
       {
-        label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
-        field: "input",
-        name: "topic",
-        required: true,
+        "label": "Choose the subject",
+        "field": "select",
+        "name": "subject",
+        "options": [
+          { "label": "Math", "value": "math" },
+          { "label": "English", "value": "english" },
+          { "label": "Physics", "value": "physics" }
+        ],
+        "required": true
       },
       {
-        label: "Enter total number of question you want to create",
-        // aiPrompt: 
-        // "If the user selects more than 2 question types and the number of questions is large, divide the number of questions equally for each question type." ,
-        field: "input",
-        name: "outline",
-        required: true,
+        "label": "Choose topics for the test",
+        "field": "input",
+        "name": "topics",
+        "required": true
       },
-    ],
+      // {
+      //   "label": "Choose the duration of the test",
+      //   "field": "select",
+      //   "name": "duration",
+      //   "options": [
+      //     { "label": "15 minutes", "value": "15m" },
+      //     { "label": "45 minutes", "value": "45m" },
+      //     { "label": "60 minutes", "value": "60m" },
+      //     { "label": "90 minutes", "value": "90m" },
+      //     { "label": "120 minutes", "value": "120m" }
+      //   ],
+      //   "required": true
+      // },
+      {
+        "label": "Choose the number of questions",
+        "field": "select",
+        "name": "numQuestions",
+        "options": [
+          { "label": "1 Question", "value": 1 },
+          { "label": "5 Questions", "value": 5 },
+          { "label": "10 Questions", "value": 10 }
+        ],
+        "required": true
+      },
+      {
+        "label": "Choose the type of questions",
+        "field": "select",
+        "name": "questionType",
+        "options": [
+          { "label": "Multiple Choice", "value": "multipleChoice" },
+          { "label": "Essay", "value": "essay" },
+          { "label": "True/False", "value": "trueFalse" }
+        ],
+        "required": true
+      },
+      {
+        "label": "Choose the format for the test",
+        "field": "select",
+        "name": "format",
+        "options": [
+          { "label": "Unicode format", "value": "unicode" },
+          { "label": "Latex format", "value": "latex" }
+        ],
+        "required": true
+      }
+    ]
   },
 
   {

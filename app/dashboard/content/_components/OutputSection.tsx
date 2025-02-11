@@ -17,7 +17,7 @@ function OutputSection({ aiOutput }: Props) {
 
   // Function remove syntax ```latex and ```
   const removeMarkdownSyntax = (text: string): string => {
-    return text.replace(/^```latex\s*/, '').replace(/\s*```$/, '');
+    return text.replace(/^```latex\s*/, '').replace(/\s*```$/, '').replace(/^```json\s*/, '');
   };
 
   // PDF Download Function

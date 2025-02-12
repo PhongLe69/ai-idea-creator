@@ -21,11 +21,7 @@
 - **Top LinkedIn Jobs**
   - Interviewers can check top LinkedIn jobs directly on our platform.
 
-<!-- GOOD -->
-<!-- https://latex.js.org/ -->
 <!-- https://latex.js.org/usage.html -->
-
-
- <!-- Bad -->
-<!-- https://github.com/manuels/texlive.js/wiki#demo -->
 <!-- https://manuels.github.io/texlive.js/ -->
+<!-- https://texviewer.herokuapp.com/
+https://quicklatex.com/ -->

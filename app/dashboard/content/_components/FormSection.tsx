@@ -86,7 +86,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
                     aria-expanded={open[item.name] || false}
                     className="w-full justify-between"
                   >
-                    {values[item.name] ? item.options.find((option: Option) => option.value === values[item.name])?.label : "Select " + item.label + "..."}
+                    {values[item.name] ? item.options.find((option: Option) => option.value === values[item.name])?.label : item.label + "..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>

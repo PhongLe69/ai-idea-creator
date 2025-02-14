@@ -15,6 +15,14 @@ function OutputSection({ aiOutput }: Props) {
   const editorRef = useRef<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  // Function remove syntax ```latex and ```
+  const removeMarkdownSyntax = (text: string): string => {
+    return text
+      .replace(/^```latex\s*/, "")
+      .replace(/\s*```$/, "")
+      .replace(/^```json\s*/, "");
+  };
+
   // PDF Download Function
   const handleDownloadPDF = () => {
     if (!aiOutput.trim()) {
@@ -50,8 +58,12 @@ function OutputSection({ aiOutput }: Props) {
     setIsLoading(true);
 
     try {
+      // Remove syntax ```latex and ```
+      const cleanedOutput = removeMarkdownSyntax(aiOutput);
+
       // Convert LaTeX code to Base64
-      const base64Content = btoa(unescape(encodeURIComponent(aiOutput)));
+      const base64Content = btoa(unescape(encodeURIComponent(cleanedOutput)));
+      // const base64Content = btoa(unescape(encodeURIComponent(aiOutput)));
       const dataUrl = `data:application/x-tex;base64,${base64Content}`;
 
       // Open Overleaf with Base64 Data URL

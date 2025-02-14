@@ -23,19 +23,9 @@ const Banner = () => {
               animate={{ opacity: 1, y: -4 }}
               transition={{ duration: 0.8 }}
             >
-              {/* <h1 className="text-4xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
-              <span>
-                  <SparklesText text="EasyContent" />{" "}
-                  AI
-                </span>
-                <br />
-                Where Creativity Meets Efficiency.{" "}
-              </h1> */}
-
               <h1 className="text-7xl font-bold tracking-tight max-w-4xl mx-auto text-navyblue sm:text-5xl lg:text-7xl md:4px">
                 <span>
-                  <SparklesText text="EduQuiz" />{" "}
-                  Generator
+                  <SparklesText text="EduQuiz" /> Generator
                 </span>
                 <br />
                 Where{" "}
@@ -48,7 +38,6 @@ const Banner = () => {
                   Efficiency
                 </span>
               </h1>
-
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -56,33 +45,28 @@ const Banner = () => {
               transition={{ duration: 1.6, delay: 0.5 }}
             >
               <p className="mt-6 text-lg max-w-prose text-center mx-auto leading-8 text-bluegray">
-                Let EduQuiz handle the hard part, while you take your content to the top chart!
+                Let EduQuiz handle the hard part, while you take your content to
+                the top chart!
               </p>
-
             </motion.div>
           </div>
 
           <div className="text-center mt-5">
-          <SignedIn>
-            <ShimmerButton size="lg" asChild>
-            <Link href="/dashboard">
-              <span className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-black to-red-900 animate-pulse">
-                Started
-              </span>
-            </Link>
-
-
-
-
-
-            </ShimmerButton>
-          </SignedIn>
-          <SignedOut>
-            <ShimmerButton size="lg" asChild>
-              <Link href="/sign-in">Login to access</Link>
-            </ShimmerButton>
-          </SignedOut>
-        </div>
+            <SignedIn>
+              <ShimmerButton size="lg" asChild>
+                <Link href="/dashboard">
+                  <span className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-black to-red-900 animate-pulse">
+                    Started
+                  </span>
+                </Link>
+              </ShimmerButton>
+            </SignedIn>
+            <SignedOut>
+              <ShimmerButton size="lg" asChild>
+                <Link href="/sign-in">Login to access</Link>
+              </ShimmerButton>
+            </SignedOut>
+          </div>
 
           {/* <Image
             src={"/assets/banner/dashboard.png"}

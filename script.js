@@ -4,7 +4,6 @@ const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
 const fileInput = promptForm.querySelector("#file-input");
 const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
-const themeToggleBtn = document.querySelector("#theme-toggle-btn");
 
 const searchParams = new URLSearchParams(window.location.search);
 const API_KEY = searchParams.get("key"); // get from https://aistudio.google.com/app/apikey
@@ -12,10 +11,6 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 let controller, typingInterval;
 const chatHistory = [];
 const userData = { message: "", file: {} };
-
-const isLightTheme = localStorage.getItem("themeColor") === "light_mode";
-document.body.classList.toggle("light-theme", isLightTheme);
-themeToggleBtn.textContent = isLightTheme ? "dark_mode" : "light_mode";
 
 const createMessageElement = (content, ...classes) => {
   const div = document.createElement("div");
@@ -166,12 +161,6 @@ document.querySelector("#stop-response-btn").addEventListener("click", () => {
     .querySelector(".bot-message.loading")
     .classList.remove("loading");
   document.body.classList.remove("bot-responding");
-});
-
-themeToggleBtn.addEventListener("click", () => {
-  const isLightTheme = document.body.classList.toggle("light-theme");
-  localStorage.setItem("themeColor", isLightTheme ? "light_mode" : "dark_mode");
-  themeToggleBtn.textContent = isLightTheme ? "dark_mode" : "light_mode";
 });
 
 document.querySelector("#delete-chats-btn").addEventListener("click", () => {

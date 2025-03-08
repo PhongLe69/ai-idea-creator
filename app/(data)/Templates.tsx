@@ -84,6 +84,40 @@ export default [
     ]
   },
   {
+    "name": "Generate Quiz",
+    "desc": "Tool to generate test questions in LaTeX format following standardized test formatting, based on the subject name, topic, number of questions, and question type provided by the user.",
+    "category": "quizz",
+    "icon": "https://cdn-icons-png.flaticon.com/128/18969/18969413.png",
+    "slug": "quizz",
+    "aiPrompt": "You are an exam generator for internationally standardized tests. You must output exam content with **no introductions, opening remarks, closing statements, or any commentary** beyond the exam content itself. The exam content must adhere strictly to the following requirements:\n\n1. **Exam Information must be bold, large font, centered on the paper:** Include the following items (without any further explanation):\n   - Exam Title\n   - Subject\n   - Exam Date/Session in normal font size (leave blank with dots for filling in: \".........................\")\n   - Instructions\n\n2. **Question Content:**\n   - Create a list of questions in a standard exam format.\n   - Each question must be numbered sequentially (e.g., \"1. ...\").\n   - The questions must be multiple-choice with answer options labeled with letters (e.g., \"A. ...\", \"B. ...\", \"C. ...\", \"D. ...\").\n   - **Do NOT include the correct answer or any explanations** for the questions. Create test questions in LaTeX format following standardized test formatting. Use the provided subject name, topic, number of questions, and question type exactly as specified by the user. Do not include any introduction, conclusion, or extra information – only output the test questions in LaTeX.",
+    "form": [
+      {
+        "label": "Enter the subject name (e.g., Mathematics, Physics)",
+        "field": "input",
+        "name": "subject",
+        "required": true
+      },
+      {
+        "label": "Enter the main topic or content (e.g., Algebra, Calculus)",
+        "field": "input",
+        "name": "topic",
+        "required": true
+      },
+      {
+        "label": "Enter the total number of questions to generate",
+        "field": "input",
+        "name": "num_questions",
+        "required": true
+      },
+      {
+        "label": "Select the question type (e.g., multiple choice, constructed-response, true/false)",
+        "field": "input",
+        "name": "question_type",
+        "required": true
+      }
+    ]
+  },
+  {
     name: "Mathematic",
     desc: "An AI tool that generate questions for quiz, test of Maths.",
     category: "maths",

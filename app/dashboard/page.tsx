@@ -12,14 +12,13 @@ import {
   BotMessageSquare,
   FileHeart,
   Loader2,
-  MailPlus,
-  Speech,
   TableProperties,
 } from "lucide-react";
 import Welcome from "@/components/Welcome";
 import Link from "next/link";
 import TemplateCard from "@/components/content/TemplateCard";
-import Templates from "@/app/(data)/Templates";
+import { Prompts } from "@/shared/prompts";
+import { TEMPLATE } from "@/components/content/TemplateListSection";
 
 type Props = {};
 
@@ -75,14 +74,12 @@ export default function Dashboard({}: Props) {
             </CardContent>
           </Card> */}
 
-           <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
             <CardHeader className="flex gap-4">
               <TableProperties size={50} />
               <div>
                 <CardTitle>AI Generate Content ✨</CardTitle>
-                <CardDescription>
-                Easily create content with AI
-                </CardDescription>
+                <CardDescription>Easily create content with AI</CardDescription>
               </div>
             </CardHeader>
             <CardContent>
@@ -93,7 +90,7 @@ export default function Dashboard({}: Props) {
                 </Link>
               </Button>
             </CardContent>
-          </Card> 
+          </Card>
 
           <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
             <CardHeader className="flex gap-4">
@@ -157,8 +154,7 @@ export default function Dashboard({}: Props) {
             Trending Tools :
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-10 mb-12">
-            {/* @ts-ignore */}
-            {Templates.slice(0, 8).map((item: TEMPLATE, index) => (
+            {Prompts.slice(0, 8).map((item: TEMPLATE, index) => (
               <TemplateCard {...item} key={index} />
             ))}
           </div>

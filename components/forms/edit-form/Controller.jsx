@@ -1,6 +1,4 @@
-import GradientBg from "@/app/_data/GradientBg";
-import Style from "@/app/_data/Style";
-import Themes from "@/app/_data/Themes";
+import { GradientBg, Styles, Themes } from "@/shared";
 import { Button } from "@/app/components/ui/button";
 import { Checkbox } from "@/app/components/ui/checkbox";
 import {
@@ -85,7 +83,7 @@ function Controller({
       <div>
         <label>Style</label>
         <div className="grid grid-cols-3  gap-3">
-          {Style.map((item, index) => (
+          {Styles.map((item, index) => (
             <div key={index}>
               <div
                 className="cursor-pointer hover:border-2 rounded-lg"

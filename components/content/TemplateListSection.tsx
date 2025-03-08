@@ -1,51 +1,44 @@
-import Templates from '@/app/(data)/Templates'
-import React, { useEffect, useState } from 'react'
-import TemplateCard from './TemplateCard'
+import { Prompts } from "@/shared";
+import React, { useEffect, useState } from "react";
+import TemplateCard from "./TemplateCard";
 
 export interface TEMPLATE {
-  name: string,
-  desc: string,
-  icon: string,
-  category?
-  
-  : string,
-  slug: string,
-  aiPrompt: string,
-  form?: FORM[]
+  name: string;
+  desc: string;
+  icon: string;
+  category?: string;
+  slug: string;
+  aiPrompt: string;
+  form?: FORM[];
 }
 
 export interface FORM {
-  label: string,
-  field: string,
-  name: string,
-  required?: boolean
+  label: string;
+  field: string;
+  name: string;
+  required?: boolean;
 }
 
 function TemplateListSection({ userSearchInput }: any) {
-
-  const [templateList, setTemplateList] = useState(Templates)
+  const [templateList, setTemplateList] = useState(Prompts);
   useEffect(() => {
-
     if (userSearchInput) {
-      const filterData = Templates.filter(item =>
+      const filterData = Prompts.filter((item) =>
         item.name.toLowerCase().includes(userSearchInput.toLowerCase())
       );
       setTemplateList(filterData);
+    } else {
+      setTemplateList(Prompts);
     }
-    else {
-      setTemplateList(Templates)
-    }
-  }, [userSearchInput])
-
+  }, [userSearchInput]);
 
   return (
-    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 mb-16'>
-      
-      {templateList.map((item:TEMPLATE,index) => (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 mb-16">
+      {templateList.map((item: TEMPLATE, index) => (
         <TemplateCard {...item} key={index} />
       ))}
     </div>
-  )
+  );
 }
 
-export default TemplateListSection
+export default TemplateListSection;

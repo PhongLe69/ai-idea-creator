@@ -3,7 +3,6 @@
 import FormSectioEmailer from "@/components/emailer/FormSectionEmailer";
 import { useState } from "react";
 import { TEMPLATE } from "@/components/content/TemplateListSection";
-import Templates from "@/app/(data)/Templates";
 import { chatSession } from "@/lib/utils/gemini-model";
 import { db } from "@/lib/utils/db";
 import { AIOutput } from "@/lib/utils/schema";
@@ -14,6 +13,7 @@ import InputBar from "@/components/ui/InputBar";
 import { Button } from "@/components/ui/button";
 import { CirclePlus } from "lucide-react";
 import dynamic from "next/dynamic";
+import { Prompts } from "@/shared/prompts";
 
 const OutputSection2 = dynamic(
   () => import("@/components/emailer/OutputSection2"),
@@ -21,7 +21,7 @@ const OutputSection2 = dynamic(
 );
 
 const page = () => {
-  const selectedTemplate: TEMPLATE | undefined = Templates?.find(
+  const selectedTemplate: TEMPLATE | undefined = Prompts?.find(
     (item) => item.slug === "email-writeup"
   );
 

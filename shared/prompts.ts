@@ -1,12 +1,13 @@
-export default [
+export const Prompts = [
   {
-    "name": "Quiz Generation",
-    "desc": "An AI tool that generates questions for quizzes and tests.",
-    "category": "quiz",
-    "icon": "https://cdn-icons-png.flaticon.com/128/3407/3407024.png",
-    "slug": "quiz",
-    "aiPrompt": "You are an exam generator for internationally standardized tests. You must output exam content with **no introductions, opening remarks, closing statements, or any commentary** beyond the exam content itself. The exam content must adhere strictly to the following requirements:\n\n1. **Exam Information:** Include the following items (without any further explanation):\n   - Exam Title\n   - Subject\n   - Exam Date/Session (leave blank with dots for filling in: \"........\")\n   - Instructions\n\n2. **Question Content:**\n   - Create a list of questions in a standard exam format.\n   - Each question must be numbered sequentially (e.g., \"1. ...\").\n   - The questions must be multiple-choice with answer options labeled with letters (e.g., \"A. ...\", \"B. ...\", \"C. ...\", \"D. ...\").\n   - **Do NOT include the correct answer or any explanations** for the questions.\n\n3. **Output Format:**\n   - The output must contain **ONLY** the exam content in the specified format, with no additional text or descriptive lines.\n   - You will receive further instructions regarding the specific output format: \"LaTeX\" or \"Unicode\".\n     - If the output format is \"LaTeX\", output the content as a valid LaTeX document (including commands such as \\documentclass{...}, \\begin{document}, and \\end{document}).\n     - If the output format is \"Unicode\", output the content in plain text while maintaining the required exam structure.\n\nOutput only the exam content following these exact instructions and do not add any additional content.",
-    "form": [
+    name: "Quiz Generation",
+    desc: "An AI tool that generates questions for quizzes and tests.",
+    category: "quiz",
+    icon: "https://cdn-icons-png.flaticon.com/128/3407/3407024.png",
+    slug: "quiz",
+    aiPrompt:
+      'You are an exam generator for internationally standardized tests. You must output exam content with **no introductions, opening remarks, closing statements, or any commentary** beyond the exam content itself. The exam content must adhere strictly to the following requirements:\n\n1. **Exam Information:** Include the following items (without any further explanation):\n   - Exam Title\n   - Subject\n   - Exam Date/Session (leave blank with dots for filling in: "........")\n   - Instructions\n\n2. **Question Content:**\n   - Create a list of questions in a standard exam format.\n   - Each question must be numbered sequentially (e.g., "1. ...").\n   - The questions must be multiple-choice with answer options labeled with letters (e.g., "A. ...", "B. ...", "C. ...", "D. ...").\n   - **Do NOT include the correct answer or any explanations** for the questions.\n\n3. **Output Format:**\n   - The output must contain **ONLY** the exam content in the specified format, with no additional text or descriptive lines.\n   - You will receive further instructions regarding the specific output format: "LaTeX" or "Unicode".\n     - If the output format is "LaTeX", output the content as a valid LaTeX document (including commands such as \\documentclass{...}, \\begin{document}, and \\end{document}).\n     - If the output format is "Unicode", output the content in plain text while maintaining the required exam structure.\n\nOutput only the exam content following these exact instructions and do not add any additional content.',
+    form: [
       // {
       //   "label": "Choose the type of test you want to create",
       //   "field": "select",
@@ -19,21 +20,21 @@ export default [
       //   "required": true
       // },
       {
-        "label": "Choose the subject",
-        "field": "select",
-        "name": "subject",
-        "options": [
-          { "label": "Math", "value": "math" },
-          { "label": "English", "value": "english" },
-          { "label": "Physics", "value": "physics" }
+        label: "Choose the subject",
+        field: "select",
+        name: "subject",
+        options: [
+          { label: "Math", value: "math" },
+          { label: "English", value: "english" },
+          { label: "Physics", value: "physics" },
         ],
-        "required": true
+        required: true,
       },
       {
-        "label": "Choose topics for the test",
-        "field": "input",
-        "name": "topics",
-        "required": true
+        label: "Choose topics for the test",
+        field: "input",
+        name: "topics",
+        required: true,
       },
       // {
       //   "label": "Choose the duration of the test",
@@ -49,39 +50,39 @@ export default [
       //   "required": true
       // },
       {
-        "label": "Choose the number of questions",
-        "field": "select",
-        "name": "numQuestions",
-        "options": [
-          { "label": "1 Question", "value": 2 },
-          { "label": "5 Questions", "value": 5 },
-          { "label": "10 Questions", "value": 10 }
+        label: "Choose the number of questions",
+        field: "select",
+        name: "numQuestions",
+        options: [
+          { label: "1 Question", value: 2 },
+          { label: "5 Questions", value: 5 },
+          { label: "10 Questions", value: 10 },
         ],
-        "required": true
+        required: true,
       },
       {
-        "label": "Choose the type of questions",
-        "field": "select",
-        "name": "questionType",
-        "options": [
-          { "label": "Multiple Choice", "value": "multipleChoice" },
-          { "label": "Essay", "value": "essay" },
-          { "label": "True/False", "value": "trueFalse" },
-          { "label": "Mix", "value": "Multiple Choice, Essay, and True/False" }
+        label: "Choose the type of questions",
+        field: "select",
+        name: "questionType",
+        options: [
+          { label: "Multiple Choice", value: "multipleChoice" },
+          { label: "Essay", value: "essay" },
+          { label: "True/False", value: "trueFalse" },
+          { label: "Mix", value: "Multiple Choice, Essay, and True/False" },
         ],
-        "required": true
+        required: true,
       },
       {
-        "label": "Choose the format for the test",
-        "field": "select",
-        "name": "format",
-        "options": [
-          { "label": "Unicode format", "value": "unicode" },
-          { "label": "Latex format", "value": "latex" }
+        label: "Choose the format for the test",
+        field: "select",
+        name: "format",
+        options: [
+          { label: "Unicode format", value: "unicode" },
+          { label: "Latex format", value: "latex" },
         ],
-        "required": true
-      }
-    ]
+        required: true,
+      },
+    ],
   },
   {
     name: "Mathematic",
@@ -90,17 +91,18 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
     slug: "maths",
     aiPrompt:
-"Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",    
+      "Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",
     form: [
       {
-        label: "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        label:
+          "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
         field: "input",
         name: "topic",
         required: true,
       },
       {
         label: "Enter total number of question you want to create",
-        // aiPrompt: 
+        // aiPrompt:
         // "If the user selects more than 2 question types and the number of questions is large, divide the number of questions equally for each question type." ,
         field: "input",
         name: "outline",
@@ -115,8 +117,7 @@ export default [
     category: "english",
 
     slug: "english-grammer-checker",
-    aiPrompt:
-      "Rewrite the inputText by correcting the grammer",
+    aiPrompt: "Rewrite the inputText by correcting the grammer",
     form: [
       {
         label: "Enter text to correct the grammer",
@@ -187,8 +188,7 @@ export default [
     catergory: "Email",
     icon: "https://cdn-icons-png.flaticon.com/128/402/402075.png",
     slug: "email-writeup",
-    aiPrompt:
-      "Generate Email Writeup based on topic and outline",
+    aiPrompt: "Generate Email Writeup based on topic and outline",
     form: [
       {
         label: "Enter your Email topic",
@@ -209,8 +209,7 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/128/3131/3131607.png",
     category: "Rewriting Tool",
     slug: "rewrite-article",
-    aiPrompt:
-      "Rewrite give article without any Plagiarism",
+    aiPrompt: "Rewrite give article without any Plagiarism",
     form: [
       {
         label:
@@ -243,8 +242,7 @@ export default [
     category: "blog",
     icon: "https://cdn-icons-png.flaticon.com/128/4905/4905454.png",
     slug: "blog-content-generation",
-    aiPrompt:
-      "Generate Blog Content based on topic and outline",
+    aiPrompt: "Generate Blog Content based on topic and outline",
     form: [
       {
         label: "Enter your blog topic",
@@ -304,8 +302,7 @@ export default [
     category: "post",
     icon: "/linkedin-375.png",
     slug: "linkedin-post-generation",
-    aiPrompt:
-      "Generate LinkedIn Post with emojis based on topic and outline",
+    aiPrompt: "Generate LinkedIn Post with emojis based on topic and outline",
     form: [
       {
         label: "Enter your LinkedIn topic",
@@ -326,8 +323,7 @@ export default [
     category: "post",
     icon: "/twitter-circled-375.png",
     slug: "twitter-post-generation",
-    aiPrompt:
-      "Generate Twitter Post with emojis based on topic and outline",
+    aiPrompt: "Generate Twitter Post with emojis based on topic and outline",
     form: [
       {
         label: "Enter your Twitter topic",
@@ -416,8 +412,7 @@ export default [
     icon: "https://cdn-icons-png.flaticon.com/128/2584/2584606.png",
     category: "blog",
     slug: "add-emoji-to-text",
-    aiPrompt:
-      "Add Emoji to outline text depends on outline and rewrite it",
+    aiPrompt: "Add Emoji to outline text depends on outline and rewrite it",
     form: [
       {
         label: "Enter your text to add emojis",
@@ -434,8 +429,7 @@ export default [
     category: "blog",
 
     slug: "instagram-post-generator",
-    aiPrompt:
-      "Generate 3 Instagram post depends on a given keywords.",
+    aiPrompt: "Generate 3 Instagram post depends on a given keywords.",
     form: [
       {
         label: "Enter Keywords for your post",
@@ -452,8 +446,7 @@ export default [
     category: "blog",
 
     slug: "instagram-hash-tag-generator",
-    aiPrompt:
-      "Generate 15 Instagram hash tag depends on a given keywords",
+    aiPrompt: "Generate 15 Instagram hash tag depends on a given keywords",
     form: [
       {
         label: "Enter Keywords for your instagram hastag",
@@ -470,8 +463,7 @@ export default [
     category: "instagram",
 
     slug: "instagram-post-idea-generator",
-    aiPrompt:
-      "Generate 5-10 Instagram idea depends on niche with latest trend",
+    aiPrompt: "Generate 5-10 Instagram idea depends on niche with latest trend",
     form: [
       {
         label: "Enter Keywords / Niche for your instagram idea",
@@ -558,7 +550,8 @@ export default [
       "Create multiple choice or essay or true or false questions for World History test, and output the result in LaTeX format for translation to a complete PDF file. If the user requests multiple choice (the questions must be presented in numerical order and the results must be presented in alphabetical order, do not give answers at the last page). Please provide the exact LaTeX code relevant to the question [question name or question description]. Design a visually appealing, professionally formatted test with clear sections, numbered questions, readable fonts, and follows academic standards for exams. Include only the necessary content in LaTeX, without any additional instructions or descriptions. Remove ```latex and the last symbol ``` ",
     form: [
       {
-        label: "Enter the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
+        label:
+          "Enter the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
         field: "input",
         name: "topic",
         required: true,

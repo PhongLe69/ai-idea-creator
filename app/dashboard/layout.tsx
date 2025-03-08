@@ -10,9 +10,9 @@ import {
   Newspaper,
   Search,
   Speech,
-  Star,
   TableProperties,
   Timer,
+  Text,
 } from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
@@ -31,6 +31,7 @@ import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
 
@@ -47,16 +48,6 @@ export default function DashLayout({
       icon: <Home size={16} />,
       link: "/dashboard",
     },
-    // {
-    //   name: "interview",
-    //   icon: <Speech size={16} />,
-    //   link: "/dashboard/interview",
-    // },
-    // {
-    //   name: "forms",
-    //   icon: <TableProperties size={16} />,
-    //   link: "/dashboard/forms",
-    // },
     {
       name: "Content",
       icon: <BarChart size={16} />,
@@ -66,6 +57,21 @@ export default function DashLayout({
       name: "Resume",
       icon: <File size={16} />,
       link: "/dashboard/resume",
+    },
+    {
+      name: "Assistant",
+      icon: <Bot size={16} />,
+      link: "/dashboard/assistant",
+    },
+    {
+      name: "Chatbot",
+      icon: <Text size={16} />,
+      link: "/dashboard/chatbot",
+    },
+    {
+      name: "History",
+      icon: <Timer size={16} />,
+      link: "/dashboard/history",
     },
     // {
     //   name: "emailer",
@@ -82,43 +88,47 @@ export default function DashLayout({
     //   icon: <Newspaper size={16} />,
     //   link: "/dashboard/headlines",
     // },
-    {
-      name: "Chatbot",
-      icon: <Bot size={16} />,
-      link: "/dashboard/chatbot",
-    },
-    {
-      name: "History",
-      icon: <Timer size={16} />,
-      link: "/dashboard/history",
-    },
+    // {
+    //   name: "interview",
+    //   icon: <Speech size={16} />,
+    //   link: "/dashboard/interview",
+    // },
+    // {
+    //   name: "forms",
+    //   icon: <TableProperties size={16} />,
+    //   link: "/dashboard/forms",
+    // },
   ];
 
-  const activePath = pathArray.filter((path) => path.name === paths[0])[0];
+  const activePath = paths[0];
+
+  const [openNav, setOpenNav] = useState(true);
+  const toggleNav = () => setOpenNav(!openNav);
 
   return (
-    <div className="grid h-screen overflow-hidden w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-muted/40 md:block">
+    <div className="flex h-screen overflow-hidden w-full">
+      <div
+        className={`hidden border-r bg-muted/40 md:block ${
+          openNav ? "w-full md:w-[220px] lg:w-[280px]" : "w-fit"
+        }`}
+      >
         <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link
-              href="/"
-              className="flex items-center gap-[3px] font-semibold"
-            >
+          <div className="flex h-14 items-center border-b px-4 lg:h-[60px]">
+            <Link href="/" className="flex items-center font-semibold">
               <Image
                 src={"/logo-black-256x256.png"}
                 width={32}
                 height={32}
                 alt="Logo"
               />
-              <span className="text-lg font-semibold tracking-tight ">
+              <span
+                className={`text-lg font-semibold tracking-tight ml-[3px] ${
+                  openNav ? "block" : "hidden"
+                }`}
+              >
                 EduQuiz
               </span>
             </Link>
-            <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Star color="#e5d70d" fill="#e5d70d" size={16} />
-              <span className="sr-only">Toggle notifications</span>
-            </Button>
           </div>
           <div className="flex-1">
             <nav
@@ -132,21 +142,33 @@ export default function DashLayout({
                   key={index}
                   href={path.link}
                   className={cn(
-                    "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 py-2 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
-                    path.name === activePath?.name
-                      ? "bg-secondary text-primary border"
+                    "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 h-10 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
+                    path.link.includes(activePath)
+                      ? "bg-secondary text-primary border pointer-events-none"
                       : ""
                   )}
                 >
-                  {path.icon}
-                  {path.name}.
+                  <span>{path.icon}</span>
+                  <span className={openNav ? "block" : "hidden"}>
+                    {path.name}
+                  </span>
                 </Link>
               ))}
             </nav>
           </div>
+          <div className="p-2">
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8"
+              onClick={toggleNav}
+            >
+              <Text size={16} />
+            </Button>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col overflow-hidden">
+      <div className="flex flex-col overflow-hidden w-full">
         <header className="flex h-14 items-center gap-4 border-b bg-transparent px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
@@ -173,8 +195,8 @@ export default function DashLayout({
                     href={path.link}
                     className={
                       "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
-                      (path.name === activePath?.name
-                        ? "bg-secondary text-primary border"
+                      (path.link.includes(activePath)
+                        ? "bg-secondary text-primary border pointer-events-none"
                         : "")
                     }
                   >
@@ -186,13 +208,11 @@ export default function DashLayout({
             </SheetContent>
           </Sheet>
           <div className="w-full flex-1">
-            <form>
-              {/* s */}
-            </form>
+            <form>{/* s */}</form>
           </div>
           <UserButton />
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 max-h-screen overflow-y-auto">
+        <main className="flex flex-1 flex-col gap-4 lg:gap-6 max-h-screen overflow-y-auto">
           {children}
         </main>
       </div>

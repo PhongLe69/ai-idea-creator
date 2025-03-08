@@ -13,7 +13,7 @@ export async function generateQuestions(inputPrompt: string) {
   const {
     object: { questions },
   } = await generateObject({
-    model: groq.chat("mixtral-8x7b-32768"),
+    model: groq.chat("mixtral-8x7b-32768") as any,
     schema: z.object({
       questions: z.array(
         z.object({
@@ -27,11 +27,4 @@ export async function generateQuestions(inputPrompt: string) {
   return questions;
 }
 
-// console.log(
-//   generateQuestions(
-//     "job position- junior dev intern, Job Description- react, js, html, css, Years of Experience - 1 , Depending on Job Position, Job Description & Years of Experience give us minimum Interview question along with answer"
-//   ).then((questions) => {
-//     console.log(questions);
-//   })
-// );
 export default generateQuestions;

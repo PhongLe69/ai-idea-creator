@@ -1,6 +1,6 @@
 "use client";
 
-import generateQuestions from "@/actions/generateQuesions";
+import generateQuestions from "@/lib/actions/generateQuesions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

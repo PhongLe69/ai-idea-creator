@@ -1,10 +1,11 @@
+import { PROJECT_NAME } from "@/shared";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Viewport } from "next";
 import { Toaster } from "sonner";
 
 export const metadata = {
-  title: "EduQuiz Generator",
+  title: PROJECT_NAME,
   description: "Next gen AI platform",
   metadataBase: new URL("http://localhost:3000"),
   manifest: "/manifest.json",

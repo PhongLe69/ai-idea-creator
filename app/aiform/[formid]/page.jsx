@@ -7,6 +7,7 @@ import { eq } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { PROJECT_NAME } from "@/shared";
 
 function LiveAiForm({ params }) {
   const [record, setRecord] = useState();
@@ -48,7 +49,7 @@ function LiveAiForm({ params }) {
         className="flex gap-2 items-center bg-zinc-800/30 backdrop-blur-md text-white px-3 py-1 rounded-full fixed bottom-5 left-5 cursor-pointer text-xs"
         href={"/"}
       >
-        Made using EduQuiz{" "}
+        Made using {PROJECT_NAME}
         <Image src={"/logo-base-256x256.png"} width={26} height={26} />
       </Link>
     </div>

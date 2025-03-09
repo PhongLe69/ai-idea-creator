@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
-import { TEMPLATE } from "@/components/content/TemplateListSection";
+import { TEMPLATE } from "../../../../components/content/TemplateListSection";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";

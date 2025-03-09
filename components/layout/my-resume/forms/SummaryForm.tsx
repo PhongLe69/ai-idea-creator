@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { generateSummary } from "@/lib/actions/gemini.actions";
-import { updateResume } from "@/lib/actions/resume.actions";
+import { generateSummary } from "@/lib/actions/gemini";
+import { updateResume } from "@/lib/actions/resume";
 import { useFormContext } from "@/lib/context/FormProvider";
 import { Brain, Loader2 } from "lucide-react";
 import React, { useRef, useState } from "react";

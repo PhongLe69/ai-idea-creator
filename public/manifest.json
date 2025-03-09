@@ -1,7 +1,7 @@
 {
-  "id": "EduQuiz",
-  "name": "EduQuiz",
-  "short_name": "EduQuiz",
+  "id": "GenHub",
+  "name": "GenHub",
+  "short_name": "GenHub",
   "scope": "/",
   "start_url": "/",
   "icons": [

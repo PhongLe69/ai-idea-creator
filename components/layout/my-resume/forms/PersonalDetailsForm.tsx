@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Input } from "../../../ui/input";
 import { Button } from "../../../ui/button";
 import { Loader2 } from "lucide-react";
-import { updateResume } from "@/lib/actions/resume.actions";
+import { updateResume } from "@/lib/actions/resume";
 import { useToast } from "@/components/ui/use-toast";
 
 const PersonalDetailsForm = ({ params }: { params: { id: string } }) => {

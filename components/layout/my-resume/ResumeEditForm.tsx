@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -19,7 +18,7 @@ import {
   addExperienceToResume,
   addSkillToResume,
   updateResume,
-} from "@/lib/actions/resume.actions";
+} from "@/lib/actions/resume";
 
 const ResumeEditForm = ({
   params,
@@ -112,7 +111,7 @@ const ResumeEditForm = ({
                   skillsResult.success
                 ) {
                   // router.push("/resume/" + params.id);
-                  (window as any).open("/resume/" + params.id, "_blank")
+                  (window as any).open("/resume/" + params.id, "_blank");
                 } else {
                   toast({
                     title: "Uh Oh! Something went wrong.",

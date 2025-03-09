@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Rating } from "@smastrom/react-rating";
 import { Loader2, Minus, Plus } from "lucide-react";
 import "@smastrom/react-rating/style.css";
-import { addSkillToResume, updateResume } from "@/lib/actions/resume.actions";
+import { addSkillToResume, updateResume } from "@/lib/actions/resume";
 import { useToast } from "@/components/ui/use-toast";
 
 const SkillsForm = ({ params }: { params: { id: string } }) => {

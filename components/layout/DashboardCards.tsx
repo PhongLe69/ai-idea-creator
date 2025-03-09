@@ -1,8 +1,8 @@
 "use client";
 
-import AddResume from "../common/AddResume";
-import ResumeCard from "../common/ResumeCard";
-import { fetchUserResumes } from "@/lib/actions/resume.actions";
+import AddResume from "./AddResume";
+import ResumeCard from "./ResumeCard";
+import { fetchUserResumes } from "@/lib/actions/resume";
 import { useUser } from "@clerk/nextjs";
 import React, { useEffect, useState } from "react";
 
@@ -39,10 +39,10 @@ const DashboardCards = () => {
               />
             ))
           : [1, 2, 3].map((index) => (
-            <div
-            key={index}
-            className="h-full w-full bg-gray-200 animate-pulse rounded-lg "
-          ></div>
+              <div
+                key={index}
+                className="h-full w-full bg-gray-200 animate-pulse rounded-lg "
+              ></div>
             ))}
       </div>
     </>

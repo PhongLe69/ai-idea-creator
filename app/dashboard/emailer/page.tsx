@@ -1,6 +1,6 @@
 "use client";
 
-import FormSectioEmailer from "@/components/emailer/FormSectionEmailer";
+import FormSectioEmailer from "@/app/dashboard/emailer/_components/FormSectionEmailer";
 import { useState } from "react";
 import { TEMPLATE } from "@/components/content/TemplateListSection";
 import { chatSession } from "@/lib/utils/gemini-model";
@@ -16,7 +16,7 @@ import dynamic from "next/dynamic";
 import { Prompts } from "@/shared/prompts";
 
 const OutputSection2 = dynamic(
-  () => import("@/components/emailer/OutputSection2"),
+  () => import("@/app/dashboard/emailer/_components/OutputSection2"),
   { ssr: false }
 );
 
@@ -84,7 +84,6 @@ const page = () => {
         </p>
         <div className="my-4 flex flex-col gap-2 md:w-1/2">
           <label className="font-bold text-white">Email</label>
-          {/*Email with valiation */}
           <div className="flex">
             <Input
               type="email"
@@ -106,13 +105,11 @@ const page = () => {
         <InputBar emails={emails} setEmails={setEmails} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20">
-        {/* FormSection  */}
         <FormSectioEmailer
           selectedTemplate={selectedTemplate}
           userFormInput={(v: any) => GenerateAIContent(v)}
           loading={loading}
         />
-        {/* OutputSection  */}
         <div className="col-span-2">
           <OutputSection2 aiOutput={aiOutput} emails={emails} />
         </div>

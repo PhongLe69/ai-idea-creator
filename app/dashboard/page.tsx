@@ -12,9 +12,11 @@ import {
   BotMessageSquare,
   FileHeart,
   Loader2,
+  Speech,
+  MessageCircle,
   TableProperties,
 } from "lucide-react";
-import Welcome from "@/components/Welcome";
+import Welcome from "@/app/dashboard/_components/Welcome";
 import Link from "next/link";
 import TemplateCard from "@/components/content/TemplateCard";
 import { Prompts } from "@/shared/prompts";
@@ -53,8 +55,9 @@ export default function Dashboard({}: Props) {
                 </Link>
               </Button>
             </CardContent>
-          </Card> */}
-          {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
+          </Card>
+
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
             <CardHeader className="flex gap-4">
               <TableProperties size={50} />
               <div>
@@ -74,61 +77,6 @@ export default function Dashboard({}: Props) {
             </CardContent>
           </Card> */}
 
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500">
-            <CardHeader className="flex gap-4">
-              <TableProperties size={50} />
-              <div>
-                <CardTitle>AI Generate Content ✨</CardTitle>
-                <CardDescription>Easily create content with AI</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <Button asChild size={"sm"}>
-                <Link href="/dashboard/content">
-                  Create
-                  <ArrowRight size={18} />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
-            <CardHeader className="flex gap-4">
-              <FileHeart size={50} />
-              <div>
-                <CardTitle>AI Resume ✨</CardTitle>
-                <CardDescription>
-                  Create your resume with our easy-to-use AI resume builder.
-                </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <Button asChild size={"sm"}>
-                <Link href="/dashboard/resume">
-                  Create
-                  <ArrowRight size={18} />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500">
-            <CardHeader className="flex gap-4">
-              <BotMessageSquare size={50} />
-              <div>
-                <CardTitle>AI Chatbot ✨</CardTitle>
-                <CardDescription>
-                  Talk , discuss and get help from AI Chatbot.
-                </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <Button size={"sm"} asChild>
-                <Link href="/dashboard/chatbot">
-                  Chat <ArrowRight size={18} />
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
           {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-500">
             <CardHeader className="flex gap-4">
               <MailPlus size={50} />
@@ -148,6 +96,80 @@ export default function Dashboard({}: Props) {
               </Button>
             </CardContent>
           </Card> */}
+
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-cyan-500 h-fit">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <TableProperties size={50} />
+                <Button asChild size={"sm"}>
+                  <Link href="/dashboard/content">
+                    Create
+                    <ArrowRight size={18} />
+                  </Link>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle>AI Generate Content</CardTitle>
+              <CardDescription>Easily create content with AI</CardDescription>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-violet-50 h-fit">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <FileHeart size={50} />
+                <Button asChild size={"sm"}>
+                  <Link href="/dashboard/resume">
+                    Create
+                    <ArrowRight size={18} />
+                  </Link>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle>AI Resume</CardTitle>
+              <CardDescription>
+                Create your resume with our easy-to-use AI resume builder.
+              </CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500 h-fit">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <BotMessageSquare size={50} />
+                <Button size={"sm"} asChild>
+                  <Link href="/dashboard/assistant">
+                    Chat <ArrowRight size={18} />
+                  </Link>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle>AI Asisstant</CardTitle>
+              <CardDescription>
+                Get help from AI assistant for your daily tasks.
+              </CardDescription>
+            </CardContent>
+          </Card>
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500 h-fit">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <MessageCircle size={50} />
+                <Button size={"sm"} asChild>
+                  <Link href="/dashboard/chatbot">
+                    Chat <ArrowRight size={18} />
+                  </Link>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle>AI Chatbot</CardTitle>
+              <CardDescription>
+                Talk , discuss and get help from AI Chatbot.
+              </CardDescription>
+            </CardContent>
+          </Card>
         </div>
         <div className="flex flex-col">
           <h2 className="text-2xl md:text-3xl font-semibold py-2 text-zinc-700">

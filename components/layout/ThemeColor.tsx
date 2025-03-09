@@ -10,7 +10,7 @@ import {
 import { Button } from "../ui/button";
 import { Check, LayoutGrid } from "lucide-react";
 import { themeColors } from "@/lib/utils";
-import { updateResume } from "@/lib/actions/resume.actions";
+import { updateResume } from "@/lib/actions/resume";
 import { useToast } from "../ui/use-toast";
 
 const ThemeColor = ({ params }: { params: { id: string } }) => {

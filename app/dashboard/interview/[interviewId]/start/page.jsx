@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const QuestionsSection = dynamic(
-  () => import("@/components/interview/start/questions-section"),
+  () => import("./_components/questions-section"),
   { ssr: false }
 );
 const RecordAnswerSection = dynamic(
-  () => import("@/components/interview/start/record-answer-section"),
+  () => import("./_components/record-answer-section"),
   { ssr: false }
 );
 

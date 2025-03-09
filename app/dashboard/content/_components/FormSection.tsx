@@ -78,7 +78,12 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
                 </label>
               </>
             ) : item.field === "select" ? (
-              <Popover open={open[item.name] || false} onOpenChange={(state) => setOpen({ ...open, [item.name]: state })}>
+              <Popover
+                open={open[item.name] || false}
+                onOpenChange={(state) =>
+                  setOpen({ ...open, [item.name]: state })
+                }
+              >
                 <PopoverTrigger asChild>
                   <Button
                     variant="outline"
@@ -86,7 +91,11 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
                     aria-expanded={open[item.name] || false}
                     className="w-full justify-between"
                   >
-                    {values[item.name] ? item.options.find((option: Option) => option.value === values[item.name])?.label : item.label + "..."}
+                    {values[item.name]
+                      ? item.options.find(
+                          (option: Option) => option.value === values[item.name]
+                        )?.label
+                      : item.label + "..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -96,9 +105,18 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
                       <div
                         key={option.value}
                         className="flex items-center p-2 hover:bg-gray-100 cursor-pointer"
-                        onClick={() => handleComboboxChange(item.name, option.value)}
+                        onClick={() =>
+                          handleComboboxChange(item.name, option.value)
+                        }
                       >
-                        <Check className={cn("mr-2 h-4 w-4", values[item.name] === option.value ? "opacity-100" : "opacity-0")} />
+                        <Check
+                          className={cn(
+                            "mr-2 h-4 w-4",
+                            values[item.name] === option.value
+                              ? "opacity-100"
+                              : "opacity-0"
+                          )}
+                        />
                         {option.label}
                       </div>
                     ))}

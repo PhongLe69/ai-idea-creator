@@ -32,6 +32,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { PROJECT_NAME } from "@/shared";
 
 const inter = Space_Grotesk({ subsets: ["latin"] });
 
@@ -41,7 +42,7 @@ export default function DashLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const paths = pathname.split("/").reverse();
+  const paths = pathname.split("/")[2];
   const pathArray = [
     {
       name: "Dashboard",
@@ -100,7 +101,7 @@ export default function DashLayout({
     // },
   ];
 
-  const activePath = paths[0];
+  const activePath = paths;
 
   const [openNav, setOpenNav] = useState(true);
   const toggleNav = () => setOpenNav(!openNav);
@@ -126,7 +127,7 @@ export default function DashLayout({
                   openNav ? "block" : "hidden"
                 }`}
               >
-                EduQuiz
+                {PROJECT_NAME}
               </span>
             </Link>
           </div>
@@ -143,7 +144,7 @@ export default function DashLayout({
                   href={path.link}
                   className={cn(
                     "flex items-center gap-2 rounded-xl hover:pl-4 transition-all duration-300 px-3 h-10 text-muted-foreground hover:text-foreground hover:shadow active:shadow-sm",
-                    path.link.includes(activePath)
+                    path.link.split("/")[2] === activePath
                       ? "bg-secondary text-primary border pointer-events-none"
                       : ""
                   )}
@@ -187,7 +188,7 @@ export default function DashLayout({
                   href="/dashboard"
                   className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <span className="sr-only">EduQuiz</span>
+                  <span className="sr-only">{PROJECT_NAME}</span>
                 </Link>
                 {pathArray.map((path, index) => (
                   <a
@@ -195,7 +196,7 @@ export default function DashLayout({
                     href={path.link}
                     className={
                       "flex items-center gap-2 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground " +
-                      (path.link.includes(activePath)
+                      (path.link.split("/")[2] === activePath
                         ? "bg-secondary text-primary border pointer-events-none"
                         : "")
                     }
@@ -207,9 +208,6 @@ export default function DashLayout({
               </nav>
             </SheetContent>
           </Sheet>
-          <div className="w-full flex-1">
-            <form>{/* s */}</form>
-          </div>
           <UserButton />
         </header>
         <main className="flex flex-1 flex-col gap-4 lg:gap-6 max-h-screen overflow-y-auto">

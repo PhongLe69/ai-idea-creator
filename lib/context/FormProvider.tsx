@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import { createContext, useState, useContext } from "react";
-import { fetchResume } from "../actions/resume.actions";
+import { fetchResume } from "../actions/resume";
 
 const FormContext = createContext({} as any);
 

@@ -3,6 +3,7 @@ import AnimatedGridPattern from "@/components/ui/gridPattern";
 import Image from "next/image";
 import Confettiburst from "@/components/ui/confetti-burst";
 import Link from "next/link";
+import { PROJECT_NAME } from "@/shared";
 
 const Page = () => {
   return (
@@ -22,7 +23,7 @@ const Page = () => {
         <br />
         Make your AI forms fast using{" "}
         <Link href="/" className="text-primary font-bold">
-        EduQuiz
+          {PROJECT_NAME}
         </Link>
       </p>
 

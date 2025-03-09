@@ -1,11 +1,11 @@
 "use client";
 
-import RichTextEditor from "@/components/common/RichEditor";
+import RichTextEditor from "@/components/layout/my-resume/forms/RichEditor";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { generateExperienceDescription } from "@/lib/actions/gemini.actions";
-import { addExperienceToResume } from "@/lib/actions/resume.actions";
+import { generateExperienceDescription } from "@/lib/actions/gemini";
+import { addExperienceToResume } from "@/lib/actions/resume";
 import { useFormContext } from "@/lib/context/FormProvider";
 import { Brain, Loader2, Minus, Plus } from "lucide-react";
 import React, { useRef, useState } from "react";
@@ -232,7 +232,10 @@ const ExperienceForm = ({ params }: { params: { id: string } }) => {
                     className="no-focus"
                   />
                 </div>
-                <div className="col-span-2 space-y-2" style={{height: "400px"}}>
+                <div
+                  className="col-span-2 space-y-2"
+                  style={{ height: "400px" }}
+                >
                   <div className="flex justify-between items-end">
                     <label className=" text-slate-700 font-semibold">
                       Summary:

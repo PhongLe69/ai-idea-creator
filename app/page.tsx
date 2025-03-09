@@ -1,14 +1,11 @@
-import Banner from "./landing-components/Banner/Banner";
-import Companies from "./landing-components/Companies/Companies";
-import Buyers from "./landing-components/Buyers/index";
-import Provide from "./landing-components/Provide/index";
-import Why from "./landing-components/Why/index";
-import Clientsay from "./landing-components/Clientsay/index";
-import Newsletter from "./landing-components/Newsletter/Newsletter";
-import Navbar from "./landing-components/Navbar/Navbar";
-import Footer from "./landing-components/Footer/Footer";
-// import { Worldwide } from "./landing-components/Worldwide";
-import { Team } from "./landing-components/team";
+import Banner from "./components/landing/Banner";
+import Provide from "./components/landing/Provide";
+import Why from "./components/landing/Why";
+import Clientsay from "./components/landing/Testimonicals";
+import Newsletter from "./components/landing/Newsletter";
+import Navbar from "./components/landing/Navbar/Navbar";
+import Footer from "./components/landing/Footer";
+import Team from "./components/landing/Team";
 
 export default function Home() {
   return (
@@ -16,11 +13,8 @@ export default function Home() {
       <Navbar />
       <div className="mt-14 w-full">
         <Banner />
-        <Companies />
-        <Buyers />
         <Provide />
         <Why />
-        {/* <Worldwide /> */}
         <Team />
         <Clientsay />
         <Newsletter />

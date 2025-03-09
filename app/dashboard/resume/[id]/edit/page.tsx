@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { currentUser } from "@clerk/nextjs/server";
-import { checkResumeOwnership } from "@/lib/actions/resume.actions";
+import { checkResumeOwnership } from "@/lib/actions/resume";
 import { redirect } from "next/navigation";
 import ResumeEditor from "@/components/layout/my-resume/ResumeEditor";
 

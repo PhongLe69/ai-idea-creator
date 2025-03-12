@@ -7,7 +7,7 @@ const Clientsay = () => {
       className="mx-auto max-w-2xl py-40 px-4s sm:px-6 lg:max-w-7xl lg:px-8"
       id="reviews"
     >
-      <div className="bg-image-what">
+      {/* <div className="bg-image-what">
         <h3 className="text-navyblue text-center text-4xl lg:text-6xl font-semibold">
           What say clients about us.
         </h3>
@@ -46,7 +46,7 @@ const Clientsay = () => {
             </div>
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

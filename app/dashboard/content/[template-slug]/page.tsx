@@ -28,11 +28,7 @@ function CreateNewContent(props: PROPS) {
   const [aiOutput, setAiOutput] = useState<string>("");
   const { user } = useUser();
   const router = useRouter();
-  /**
-   * Used to generate content from AI
-   * @param formData
-   * @returns
-   */
+
   const GenerateAIContent = async (formData: any) => {
     setLoading(true);
     const SelectedPrompt = selectedTemplate?.aiPrompt;
@@ -61,25 +57,17 @@ function CreateNewContent(props: PROPS) {
   };
 
   return (
-    <div className="p-5">
-      <Link href={"/dashboard/content"}>
-        <Button variant="secondary">
-          {" "}
-          <ArrowLeft /> Back
-        </Button>
-      </Link>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 py-5 ">
-        {/* FormSection  */}
-        <FormSection
-          selectedTemplate={selectedTemplate}
-          userFormInput={(v: any) => GenerateAIContent(v)}
-          loading={loading}
-        />
-        {/* OutputSection  */}
+    <div className="grid justify-center grid-cols-1 md:grid-cols-3 gap-5 p-5">
+      <FormSection
+        selectedTemplate={selectedTemplate}
+        userFormInput={(v: any) => GenerateAIContent(v)}
+        loading={loading}
+      />
+      {aiOutput && (
         <div className="col-span-2">
           <OutputSection aiOutput={aiOutput} />
         </div>
-      </div>
+      )}
     </div>
   );
 }

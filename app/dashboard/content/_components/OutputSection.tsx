@@ -6,6 +6,7 @@ import { Editor } from "@toast-ui/react-editor";
 import { Copy, Download, ExternalLink, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import jsPDF from "jspdf";
+import { useSearchParams } from "next/navigation";
 
 interface Props {
   aiOutput: string;
@@ -15,7 +16,9 @@ function OutputSection({ aiOutput }: Props) {
   const editorRef = useRef<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Function remove syntax ```latex and ```
+  const searchParams = useSearchParams();
+  const queryType = searchParams?.get("type");
+
   const removeMarkdownSyntax = (text: string): string => {
     return text
       .replace(/^```latex\s*/, "")
@@ -23,7 +26,6 @@ function OutputSection({ aiOutput }: Props) {
       .replace(/^```json\s*/, "");
   };
 
-  // PDF Download Function
   const handleDownloadPDF = () => {
     if (!aiOutput.trim()) {
       alert("No content to download!");
@@ -48,7 +50,6 @@ function OutputSection({ aiOutput }: Props) {
     }
   };
 
-  // Function to open LaTeX code in Overleaf using Base64 Data URL
   const handleOpenInOverleaf = () => {
     if (!aiOutput.trim()) {
       alert("No content to open in Overleaf!");
@@ -58,15 +59,11 @@ function OutputSection({ aiOutput }: Props) {
     setIsLoading(true);
 
     try {
-      // Remove syntax ```latex and ```
       const cleanedOutput = removeMarkdownSyntax(aiOutput);
 
-      // Convert LaTeX code to Base64
       const base64Content = btoa(unescape(encodeURIComponent(cleanedOutput)));
-      // const base64Content = btoa(unescape(encodeURIComponent(aiOutput)));
       const dataUrl = `data:application/x-tex;base64,${base64Content}`;
 
-      // Open Overleaf with Base64 Data URL
       const overleafUrl = `https://www.overleaf.com/docs?snip_uri=${encodeURIComponent(
         dataUrl
       )}`;
@@ -84,31 +81,27 @@ function OutputSection({ aiOutput }: Props) {
     editorInstance.setMarkdown(aiOutput);
   }, [aiOutput]);
 
-  const [viewText, setViewText] = useState("PDF");
-  const [latexCode, setLatexCode] = useState("");
-
-  const convertTo = () => {
-    if (viewText === "PDF") {
-      setViewText("Latex");
-      const base64Content = btoa(unescape(encodeURIComponent(aiOutput)));
-      const dataUrl = `data:application/x-tex;base64,${base64Content}`;
-      setLatexCode(
-        `https://www.overleaf.com/docs?snip_uri=${encodeURIComponent(dataUrl)}`
-      );
-    } else {
-      setViewText("PDF");
-      setLatexCode("");
-    }
-  };
-
   return (
     <div className="bg-white shadow-lg border rounded-lg">
       <div className="flex justify-between items-center p-5">
         <h2 className="font-medium text-lg">Your Result</h2>
         <div className="flex gap-2">
-          <Button variant="outline" className="flex gap-2" onClick={convertTo}>
-            <Eye className="w-4 h-4" /> {viewText}
-          </Button>
+          {queryType === "latex" ? (
+            <Button
+              variant="outline"
+              className="flex gap-2"
+              onClick={handleOpenInOverleaf}
+              disabled={isLoading}
+            >
+              {isLoading ? (
+                "Loading..."
+              ) : (
+                <>
+                  <ExternalLink className="w-4 h-4" /> Open in Overleaf
+                </>
+              )}
+            </Button>
+          ) : null}
 
           <Button
             variant="outline"
@@ -117,20 +110,7 @@ function OutputSection({ aiOutput }: Props) {
           >
             <Download className="w-4 h-4" /> Download PDF
           </Button>
-          <Button
-            variant="outline"
-            className="flex gap-2"
-            onClick={handleOpenInOverleaf}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              "Loading..."
-            ) : (
-              <>
-                <ExternalLink className="w-4 h-4" /> Open in Overleaf
-              </>
-            )}
-          </Button>
+
           <Button
             variant="outline"
             className="flex gap-2"
@@ -140,25 +120,16 @@ function OutputSection({ aiOutput }: Props) {
           </Button>
         </div>
       </div>
-      {latexCode ? (
-        <iframe
-          src={latexCode}
-          width="100%"
-          height="300"
-          style={{ border: "1px solid black" }}
-        ></iframe>
-      ) : (
-        <Editor
-          ref={editorRef}
-          initialValue="Your result will appear here"
-          initialEditType="wysiwyg"
-          height="600px"
-          useCommandShortcut={true}
-          onChange={() =>
-            console.log(editorRef.current.getInstance().getMarkdown())
-          }
-        />
-      )}
+      <Editor
+        ref={editorRef}
+        initialValue="Your result will appear here"
+        initialEditType="wysiwyg"
+        height="600px"
+        useCommandShortcut={true}
+        onChange={() =>
+          console.log(editorRef.current.getInstance().getMarkdown())
+        }
+      />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import {
   TableProperties,
   Timer,
   Text,
+  ArrowLeft,
 } from "lucide-react";
 
 import { Space_Grotesk } from "next/font/google";
@@ -64,11 +65,11 @@ export default function DashLayout({
       icon: <Bot size={16} />,
       link: "/dashboard/assistant",
     },
-    // {
-    //   name: "Chatbot",
-    //   icon: <Text size={16} />,
-    //   link: "/dashboard/chatbot",
-    // },
+    {
+      name: "Chatbot",
+      icon: <Text size={16} />,
+      link: "/dashboard/chatbot",
+    },
     {
       name: "History",
       icon: <Timer size={16} />,
@@ -105,6 +106,10 @@ export default function DashLayout({
 
   const [openNav, setOpenNav] = useState(true);
   const toggleNav = () => setOpenNav(!openNav);
+
+  const back = () => {
+    window?.history?.back();
+  };
 
   return (
     <div className="flex h-screen overflow-hidden w-full">
@@ -208,8 +213,13 @@ export default function DashLayout({
               </nav>
             </SheetContent>
           </Sheet>
-          <div className="ml-auto">
-          <UserButton />
+          <div className="flex justify-between items-center w-full">
+            <Button variant="secondary" onClick={back}>
+              {" "}
+              <ArrowLeft /> Back
+            </Button>
+
+            <UserButton />
           </div>
         </header>
         <main className="flex flex-1 flex-col gap-4 lg:gap-6 max-h-screen overflow-y-auto">

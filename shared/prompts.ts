@@ -8,138 +8,111 @@ export const Prompts = [
     aiPrompt:
       'You are an exam generator for internationally standardized tests. You must output exam content with **no introductions, opening remarks, closing statements, or any commentary** beyond the exam content itself. The exam content must adhere strictly to the following requirements:\n\n1. **Exam Information:** Include the following items (without any further explanation):\n   - Exam Title\n   - Subject\n   - Exam Date/Session (leave blank with dots for filling in: "........")\n   - Instructions\n\n2. **Question Content:**\n   - Create a list of questions in a standard exam format.\n   - Each question must be numbered sequentially (e.g., "1. ...").\n   - The questions must be multiple-choice with answer options labeled with letters (e.g., "A. ...", "B. ...", "C. ...", "D. ...").\n   - **Do NOT include the correct answer or any explanations** for the questions.\n\n3. **Output Format:**\n   - The output must contain **ONLY** the exam content in the specified format, with no additional text or descriptive lines.\n   - You will receive further instructions regarding the specific output format: "LaTeX" or "Unicode".\n     - If the output format is "LaTeX", output the content as a valid LaTeX document (including commands such as \\documentclass{...}, \\begin{document}, and \\end{document}).\n     - If the output format is "Unicode", output the content in plain text while maintaining the required exam structure.\n\nOutput only the exam content following these exact instructions and do not add any additional content.',
     form: [
-      // {
-      //   "label": "Choose the type of test you want to create",
-      //   "field": "select",
-      //   "name": "testType",
-      //   "options": [
-      //     { "label": "Quiz", "value": "quiz" },
-      //     { "label": "Midterm", "value": "midterm" },
-      //     { "label": "Final Exam", "value": "finalExam" }
-      //   ],
-      //   "required": true
-      // },
       {
-        label: "Choose the subject",
+        label: "Type",
+        field: "select",
+        name: "testType",
+        options: [
+          { label: "Quiz", value: "quiz" },
+          { label: "Midterm", value: "midterm" },
+          { label: "Final Exam", value: "finalExam" },
+        ],
+        required: true,
+      },
+      {
+        label: "Subject",
         field: "select",
         name: "subject",
         options: [
           { label: "Math", value: "math" },
           { label: "English", value: "english" },
           { label: "Physics", value: "physics" },
+          { label: "Chemistry", value: "chemistry" },
+          { label: "Biology", value: "biology" },
+          { label: "History", value: "history" },
+          { label: "Geography", value: "geography" },
+          { label: "Computer Science", value: "computerScience" },
+          { label: "Economics", value: "economics" },
+          { label: "Literature", value: "literature" },
+          { label: "Art", value: "art" },
+          { label: "Music", value: "music" },
+          { label: "Physical Education", value: "physicalEducation" },
+          { label: "Foreign Language", value: "foreignLanguage" },
+          { label: "Other", value: "other" },
         ],
         required: true,
       },
       {
-        label: "Choose topics for the test",
+        label: "Topics",
         field: "input",
         name: "topics",
         required: true,
       },
-      // {
-      //   "label": "Choose the duration of the test",
-      //   "field": "select",
-      //   "name": "duration",
-      //   "options": [
-      //     { "label": "15 minutes", "value": "15m" },
-      //     { "label": "45 minutes", "value": "45m" },
-      //     { "label": "60 minutes", "value": "60m" },
-      //     { "label": "90 minutes", "value": "90m" },
-      //     { "label": "120 minutes", "value": "120m" }
-      //   ],
-      //   "required": true
-      // },
       {
-        label: "Choose the number of questions",
+        label: "Duration",
+        field: "select",
+        name: "duration",
+        options: [
+          { label: "15 minutes", value: "15m" },
+          { label: "45 minutes", value: "45m" },
+          { label: "60 minutes", value: "60m" },
+          { label: "90 minutes", value: "90m" },
+          { label: "120 minutes", value: "120m" },
+        ],
+        required: true,
+      },
+      {
+        label: "Quantity",
         field: "select",
         name: "numQuestions",
         options: [
           { label: "1 Question", value: 2 },
           { label: "5 Questions", value: 5 },
           { label: "10 Questions", value: 10 },
+          { label: "15 Questions", value: 15 },
+          { label: "20 Questions", value: 20 },
+          { label: "25 Questions", value: 25 },
+          { label: "30 Questions", value: 30 },
+          { label: "35 Questions", value: 35 },
+          { label: "40 Questions", value: 40 },
+          { label: "45 Questions", value: 45 },
+          { label: "50 Questions", value: 50 },
         ],
         required: true,
       },
       {
-        label: "Choose the type of questions",
+        label: "Form",
         field: "select",
         name: "questionType",
         options: [
           { label: "Multiple Choice", value: "multipleChoice" },
-          { label: "Essay", value: "essay" },
           { label: "True/False", value: "trueFalse" },
+          { label: "Essay", value: "essay" },
+          { label: "Fill in the Blank", value: "fillBlank" },
+          { label: "Matching", value: "matching" },
           { label: "Mix", value: "Multiple Choice, Essay, and True/False" },
         ],
         required: true,
       },
       {
-        label: "Choose the format for the test",
+        label: "Level",
+        field: "select",
+        name: "difficulty",
+        options: [
+          { label: "Easy", value: "easy" },
+          { label: "Medium", value: "medium" },
+          { label: "Hard", value: "hard" },
+        ],
+        required: true,
+      },
+      {
+        label: "Output",
         field: "select",
         name: "format",
         options: [
           { label: "Unicode format", value: "unicode" },
           { label: "Latex format", value: "latex" },
         ],
-        required: true,
-      },
-    ],
-  },
-  {
-    "name": "Generate Quiz",
-    "desc": "Tool to generate test questions in LaTeX format following standardized test formatting, based on the subject name, topic, number of questions, and question type provided by the user.",
-    "category": "quizz",
-    "icon": "https://cdn-icons-png.flaticon.com/128/18969/18969413.png",
-    "slug": "quizz",
-    "aiPrompt": "You are an exam generator for internationally standardized tests. You must output exam content with **no introductions, opening remarks, closing statements, or any commentary** beyond the exam content itself. The exam content must adhere strictly to the following requirements:\n\n1. **Exam Information must be bold, large font, centered on the paper:** Include the following items (without any further explanation):\n   - Exam Title\n   - Subject\n   - Exam Date/Session in normal font size (leave blank with dots for filling in: \".........................\")\n   - Instructions\n\n2. **Question Content:**\n   - Create a list of questions in a standard exam format.\n   - Each question must be numbered sequentially (e.g., \"1. ...\").\n   - The questions must be multiple-choice with answer options labeled with letters (e.g., \"A. ...\", \"B. ...\", \"C. ...\", \"D. ...\").\n   - **Do NOT include the correct answer or any explanations** for the questions. Create test questions in LaTeX format following standardized test formatting. Use the provided subject name, topic, number of questions, and question type exactly as specified by the user. Do not include any introduction, conclusion, or extra information – only output the test questions in LaTeX.",
-    "form": [
-      {
-        "label": "Enter the subject name (e.g., Mathematics, Physics)",
-        "field": "input",
-        "name": "subject",
-        "required": true
-      },
-      {
-        "label": "Enter the main topic or content (e.g., Algebra, Calculus)",
-        "field": "input",
-        "name": "topic",
-        "required": true
-      },
-      {
-        "label": "Enter the total number of questions to generate",
-        "field": "input",
-        "name": "num_questions",
-        "required": true
-      },
-      {
-        "label": "Select the question type (e.g., multiple choice, constructed-response, true/false)",
-        "field": "input",
-        "name": "question_type",
-        "required": true
-      }
-    ]
-  },
-  {
-    name: "Mathematic",
-    desc: "An AI tool that generate questions for quiz, test of Maths.",
-    category: "maths",
-    icon: "https://cdn-icons-png.flaticon.com/256/7288/7288734.png",
-    slug: "maths",
-    aiPrompt:
-      "Generate Calculus 1, 2, or 3 test questions (multiple choice, essay, or true/false) in LaTeX format for a PDF, following academic standards. For multiple choice, present questions numerically and choices alphabetically without answers. Output plain LaTeX code only, no Markdown syntax or additional instructions.",
-    form: [
-      {
-        label:
-          "Enter your required and the type of test you want to create, for example: multiple choice, constructed-response, or true or false",
-        field: "input",
-        name: "topic",
-        required: true,
-      },
-      {
-        label: "Enter total number of question you want to create",
-        // aiPrompt:
-        // "If the user selects more than 2 question types and the number of questions is large, divide the number of questions equally for each question type." ,
-        field: "input",
-        name: "outline",
         required: true,
       },
     ],

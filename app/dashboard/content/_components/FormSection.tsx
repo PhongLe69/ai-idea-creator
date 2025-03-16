@@ -12,6 +12,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface PROPS {
   selectedTemplate?: TEMPLATE;
@@ -28,6 +29,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
   const [formData, setFormData] = useState<any>({});
   const [open, setOpen] = useState<{ [key: string]: boolean }>({});
   const [values, setValues] = useState<{ [key: string]: string }>({});
+  const [currentParam, setCurrentParam] = useState<string>("");
 
   const handleInputChange = (event: any) => {
     const { name, value } = event.target;
@@ -38,20 +40,32 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
     setValues({ ...values, [fieldName]: selectedValue });
     setFormData({ ...formData, [fieldName]: selectedValue });
     setOpen({ ...open, [fieldName]: false });
+    if (selectedValue === "unicode" || selectedValue === "latex") {
+      setCurrentParam(selectedValue);
+    }
   };
+
+  const router = useRouter();
+  const params = useSearchParams();
 
   const onSubmit = (e: any) => {
     e.preventDefault();
     userFormInput(formData);
+
+    const newParams = new URLSearchParams(params?.toString());
+    newParams.set("type", currentParam);
+    router.push(`?${newParams.toString()}`);
   };
 
   return (
     <div className="p-5 shadow-md border rounded-lg bg-white">
-      {/* @ts-ignore */}
-      <Image src={selectedTemplate?.icon} alt="icon" width={70} height={70} />
-      <h2 className="font-bold text-2xl mb-2 mt-4 text-primary">
-        {selectedTemplate?.name}
-      </h2>
+      <div className="flex items-center gap-4">
+        {/* @ts-ignore */}
+        <Image src={selectedTemplate?.icon} alt="icon" width={50} height={50} />
+        <h2 className="font-bold text-2xl text-primary">
+          {selectedTemplate?.name}
+        </h2>
+      </div>
       <p className="text-gray-500 text-sm">{selectedTemplate?.desc}</p>
 
       <form className="mt-6" onSubmit={onSubmit}>

@@ -152,7 +152,7 @@ export default function Dashboard({}: Props) {
               </CardDescription>
             </CardContent>
           </Card>
-          {/* <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500 h-fit">
+          <Card className="hover:-translate-y-1 shadow hover:shadow-blue-500/40 hover:shadow-md duration-500 transition-all border border-blue-500 h-fit">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <MessageCircle size={50} />
@@ -169,7 +169,7 @@ export default function Dashboard({}: Props) {
                 Talk , discuss and get help from AI Chatbot.
               </CardDescription>
             </CardContent>
-          </Card> */}
+          </Card>
         </div>
         <div className="flex flex-col">
           <h2 className="text-2xl md:text-3xl font-semibold py-2 text-zinc-700">

@@ -65,11 +65,11 @@ export default function DashLayout({
       icon: <Bot size={16} />,
       link: "/dashboard/assistant",
     },
-    {
-      name: "Chatbot",
-      icon: <Text size={16} />,
-      link: "/dashboard/chatbot",
-    },
+    // {
+    //   name: "Chatbot",
+    //   icon: <Text size={16} />,
+    //   link: "/dashboard/chatbot",
+    // },
     {
       name: "History",
       icon: <Timer size={16} />,
